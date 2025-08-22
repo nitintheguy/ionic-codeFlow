@@ -1,0 +1,7 @@
+{
+  "name": "CodeFlow",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
