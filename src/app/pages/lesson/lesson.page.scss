@@ -1,0 +1,136 @@
+.lesson-content {
+  --background: #FDF6E3;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+
+.lesson-meta {
+  display: flex;
+  gap: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  color: white;
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    
+    ion-icon {
+      font-size: 16px;
+    }
+  }
+}
+
+.content-section {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 107, 129, 0.1);
+  
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 12px 0;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+  }
+  
+  ul {
+    margin: 0;
+    padding-left: 20px;
+    
+    li {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+  }
+}
+
+.interactive-section {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 107, 129, 0.1);
+  
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 16px 0;
+  }
+}
+
+.code-editor {
+  background: #2D2D2D;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  font-family: 'Courier New', monospace;
+  
+  pre {
+    margin: 0;
+    color: #F8F8F2;
+    font-size: 14px;
+    line-height: 1.4;
+    overflow-x: auto;
+  }
+}
+
+.run-btn {
+  --background: rgba(255, 107, 129, 0.1);
+  --color: #FF6B81;
+  --border-radius: 12px;
+  --border-style: solid;
+  --border-width: 2px;
+  --border-color: rgba(255, 107, 129, 0.3);
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  font-weight: 600;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.complete-btn {
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  --background-activated: #E05570;
+  --background-hover: #FF8E9E;
+  --border-radius: 16px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --box-shadow: 0 4px 0 #E05570, 0 6px 12px rgba(255, 107, 129, 0.3);
+  font-weight: 600;
+  font-size: 16px;
+  margin: 16px;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    --background: white;
+    --border-color: rgba(255, 107, 129, 0.1);
+  }
+}

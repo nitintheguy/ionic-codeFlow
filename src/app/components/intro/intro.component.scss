@@ -1,0 +1,351 @@
+ * {
+            
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body{
+            background: #FDF6E3;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .intro-content{
+            margin-right: 0em;
+            margin-top:5em;
+            margin-left:0em;
+            width:100%;
+            max-width:1400px;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-cards {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .intro-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border: 2px solid #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(100px) scale(0.9);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Stacked positioning with delays */
+        .intro-card.card-1 {
+            animation: stackCard 0.8s ease-out 0.5s forwards;
+            z-index: 1;
+        }
+
+        .intro-card.card-2 {
+            animation: stackCard 0.8s ease-out 3.2s forwards;
+            z-index: 2;
+        }
+
+        .intro-card.card-3 {
+            animation: stackCard 0.8s ease-out 4.9s forwards;
+            z-index: 3;
+        }
+        
+        .intro-card.card-4 {
+            animation: stackCard 0.8s ease-out 6.6s forwards;
+            z-index: 4;
+        }
+        
+        .intro-card.card-5 {
+            animation: stackCard 0.8s ease-out 8.3s forwards;
+            z-index: 5;
+        }
+
+        @keyframes stackCard {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Stacked effect - each card slightly offset */
+        .intro-card.card-1 {
+            top: 16px;
+            left: 16px;
+        }
+
+        .intro-card.card-2 {
+            top: 12px;
+            left: 12px;
+        }
+
+        .intro-card.card-3 {
+            top: 8px;
+            left: 8px;
+        }
+        
+        .intro-card.card-4 {
+            top: 4px;
+            left: 4px;
+        }
+        
+        .intro-card.card-5 {
+            top: 0;
+            left: 0;
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            .intro-cards {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+
+            .intro-card.card-1 {
+                top: 8px;
+                left: 8px;
+            }
+
+            .intro-card.card-2 {
+                top: 6px;
+                left: 6px;
+            }
+
+            .intro-card.card-3 {
+                top: 4px;
+                left: 4px;
+            }
+            
+            .intro-card.card-4 {
+                top: 2px;
+                left: 2px;
+            }
+            
+            .intro-card.card-5 {
+                top: 0;
+                left: 0;
+            }
+        }
+
+        /* Hover effect on container */
+        .intro-cards:hover .intro-card.card-1 {
+            transform: translateY(20px) translateX(10px) rotate(2deg);
+        }
+
+        .intro-cards:hover .intro-card.card-2 {
+            transform: translateY(10px) translateX(5px) rotate(1deg);
+        }
+
+        .intro-cards:hover .intro-card.card-3 {
+            transform: translateY(0) rotate(0deg);
+        }
+        
+        .intro-cards:hover .intro-card.card-4 {
+            transform: translateY(-10px) translateX(-5px) rotate(-1deg);
+        }
+        
+        .intro-cards:hover .intro-card.card-5 {
+            transform: translateY(-20px) translateX(-10px) rotate(-2deg);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            padding: 1rem;
+        }
+
+        .profile-button {
+            --background:#FF6B81 ;
+            --border-radius: 9999px;
+            --padding-start:1.2rem;
+            --padding-end: 2rem;
+            font-weight: 500;
+            text-transform: none;
+            height: 48px;
+            margin: 0 auto;
+        
+        }
+
+        ion-card-header {
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        ion-card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        ion-card-content {
+            padding: 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            margin: 0;
+        }
+
+        /* Subtle gradient backgrounds for each card */
+        .card-1 {
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+        }
+
+        .card-2 {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+        }
+
+        .card-3 {
+            background: linear-gradient(135deg, #ffffff 0%, #fef6ff 100%);
+        }
+        
+        .card-4 {
+            background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+        }
+        
+        .card-5 {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards-title {
+                font-size: 2.2rem;
+                margin-bottom: 60px;
+            }
+            
+            .intro-cards {
+                max-width: 340px;
+                height: 450px;
+            }
+            
+            .intro-card {
+                padding: 40px 30px;
+            }
+
+            .intro-card.card-2 {
+                top: 18px;
+                left: 18px;
+            }
+
+            .intro-card.card-3 {
+                top: 12px;
+                left: 12px;
+            }
+            
+            .intro-card.card-4 {
+                top: 6px;
+                left: 6px;
+            }
+            
+            .intro-card.card-5 {
+                top: 0;
+                left: 0;
+            }
+            
+            ion-card-title {
+                font-size: 1.5rem;
+            }
+            
+            ion-card-content {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 30px 15px;
+            }
+            
+            .cards-title {
+                font-size: 1.8rem;
+                margin-bottom: 50px;
+            }
+            
+            .intro-cards {
+                max-width: 300px;
+                height: 420px;
+            }
+            
+            .intro-card {
+                padding: 35px 25px;
+            }
+
+            .intro-card.card-2 {
+                top: 15px;
+                left: 15px;
+            }
+
+            .intro-card.card-3 {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .intro-card.card-4 {
+                top: 5px;
+                left: 5px;
+            }
+            
+            .intro-card.card-5 {
+                top: 0;
+                left: 0;
+            }
+            
+            ion-card-title {
+                font-size: 1.3rem;
+            }
+            
+            ion-card-content {
+                font-size: 0.95rem;
+            }
+
+            /* Less dramatic hover on mobile */
+            .intro-cards:hover .intro-card.card-1 {
+                transform: translateY(10px) translateX(5px) rotate(1deg);
+            }
+
+            .intro-cards:hover .intro-card.card-2 {
+                transform: translateY(5px) translateX(3px) rotate(0.5deg);
+            }
+
+            .intro-cards:hover .intro-card.card-4 {
+                transform: translateY(-5px) translateX(-3px) rotate(-0.5deg);
+            }
+            
+            .intro-cards:hover .intro-card.card-5 {
+                transform: translateY(-10px) translateX(-5px) rotate(-1deg);
+            }
+        }

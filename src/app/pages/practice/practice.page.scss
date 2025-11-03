@@ -1,0 +1,274 @@
+.practice-content {
+  --background: #FDF6E3;
+}
+
+.primary-toolbar {
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+  --color: white !important;
+  
+  ion-button {
+    --color: white !important;
+    
+    ion-icon {
+      color: white !important;
+      font-size: 24px;
+    }
+  }
+  
+  ion-title {
+    --color: white !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}
+
+.practice-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  
+  .lottie-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+  }
+  
+  h2 {
+    font-size: 1.8em;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+  }
+}
+
+.section-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+  border-left: 4px solid #FF6B81;
+  padding-left: 12px;
+}
+
+.difficulty-section, .categories-section, .settings-section, .start-section {
+  background: white;
+  margin: 0 20px 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.difficulty-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.difficulty-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 2px solid rgba(255, 107, 129, 0.1);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:active {
+    transform: scale(0.98);
+  }
+  
+  &.selected {
+    border-color: #FF6B81;
+    background: rgba(255, 107, 129, 0.05);
+  }
+}
+
+.difficulty-icon {
+  width: 50px;
+  height: 50px;
+  
+  .lottie-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.difficulty-info {
+  flex: 1;
+  
+  h4 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  
+  p {
+    color: #666;
+    font-size: 12px;
+    margin: 0 0 8px 0;
+  }
+  
+  .problem-count {
+    font-size: 11px;
+    color: #FF6B81;
+    font-weight: 600;
+  }
+}
+
+.difficulty-check {
+  ion-icon {
+    color: #58CC02;
+    font-size: 24px;
+  }
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.category-card {
+  padding: 16px;
+  border: 2px solid rgba(255, 107, 129, 0.1);
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &.selected {
+    border-color: #FF6B81;
+    background: rgba(255, 107, 129, 0.05);
+  }
+  
+  .category-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 8px;
+    
+    .lottie-container {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  h4 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  
+  p {
+    color: #666;
+    font-size: 11px;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+  }
+  
+  .category-stats {
+    .solved {
+      font-size: 10px;
+      color: #58CC02;
+      font-weight: 600;
+    }
+  }
+}
+
+.settings-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.setting-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.setting-info {
+  flex: 1;
+  
+  h4 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  
+  p {
+    color: #666;
+    font-size: 12px;
+    margin: 0;
+  }
+}
+
+.setting-control {
+  ion-segment {
+    --background: rgba(255, 107, 129, 0.1);
+  }
+  
+  ion-segment-button {
+    --color-checked: #FF6B81;
+    --indicator-color: #FF6B81;
+  }
+  
+  ion-toggle {
+    --handle-background: #FF6B81;
+    --background-checked: rgba(255, 107, 129, 0.2);
+  }
+}
+
+.start-btn {
+  --border-radius: 16px;
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  --color: white;
+  --box-shadow: 0 6px 0 #E05570, 0 8px 20px rgba(255, 107, 129, 0.3);
+  height: 56px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 16px;
+  
+  &:active:not([disabled]) {
+    transform: scale(0.95);
+  }
+  
+  &[disabled] {
+    --background: #ccc;
+    --box-shadow: none;
+  }
+}
+
+.session-info {
+  display: flex;
+  justify-content: space-around;
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    
+    ion-icon {
+      color: #FF6B81;
+      font-size: 16px;
+    }
+    
+    span {
+      font-size: 12px;
+      color: #666;
+      font-weight: 500;
+    }
+  }
+}

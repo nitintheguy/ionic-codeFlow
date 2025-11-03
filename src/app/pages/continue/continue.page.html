@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Continue Battle</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="showBattleInfo()">
+        <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="continue-content">
+  <!-- Battle Overview -->
+  <div class="battle-overview">
+    <div class="battle-header">
+      <h2>Algorithm Duel</h2>
+      <p>Time Remaining: {{ formatTime(timeRemaining) }}</p>
+    </div>
+
+    <div class="players-comparison">
+      <div class="player you">
+        <div class="player-avatar">
+          <div class="lottie-container" id="player-you-animation"></div>
+        </div>
+        <div class="player-info">
+          <h4>You</h4>
+          <span class="elo">1250 ELO</span>
+        </div>
+        <div class="progress-indicator">
+          <div class="progress-circle" [style.background]="'conic-gradient(#58CC02 ' + (yourProgress * 3.6) + 'deg, #eee 0deg)'">
+            <span>{{ yourProgress }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="vs-section">
+        <div class="vs-badge">VS</div>
+        <div class="time-info">
+          <span>{{ formatTime(timeElapsed) }} elapsed</span>
+        </div>
+      </div>
+
+      <div class="player opponent">
+        <div class="progress-indicator">
+          <div class="progress-circle" [style.background]="'conic-gradient(#FF6B81 ' + (opponentProgress * 3.6) + 'deg, #eee 0deg)'">
+            <span>{{ opponentProgress }}%</span>
+          </div>
+        </div>
+        <div class="player-info">
+          <h4>LogicMaster</h4>
+          <span class="elo">1270 ELO</span>
+        </div>
+        <div class="player-avatar">
+          <div class="lottie-container" id="opponent-animation"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem Details -->
+  <div class="problem-section">
+    <div class="problem-header">
+      <h3>Binary Tree Zigzag Level Order</h3>
+      <span class="difficulty medium">Medium</span>
+    </div>
+
+    <div class="problem-description">
+      <p>Given the root of a binary tree, return the zigzag level order traversal of its nodes' values.</p>
+      
+      <div class="example">
+        <strong>Example:</strong>
+        <pre>Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[20,9],[15,7]]</pre>
+      </div>
+
+      <div class="constraints">
+        <strong>Constraints:</strong>
+        <ul>
+          <li>The number of nodes in the tree is in the range [0, 2000]</li>
+          <li>-100 <= Node.val <= 100</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="code-stats">
+      <div class="stat">
+        <ion-icon name="code"></ion-icon>
+        <span>Lines: {{ linesOfCode }}</span>
+      </div>
+      <div class="stat">
+        <ion-icon name="checkmark-circle"></ion-icon>
+        <span>Test Cases: {{ passedTests }}/{{ totalTests }}</span>
+      </div>
+      <div class="stat">
+        <ion-icon name="time"></ion-icon>
+        <span>Last Saved: {{ lastSaved }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-section">
+    <ion-button expand="block" class="continue-btn" (click)="continueCoding()">
+      <ion-icon name="code" slot="start"></ion-icon>
+      Continue Coding
+    </ion-button>
+
+    <div class="secondary-actions">
+      <ion-button fill="outline" (click)="viewSolution()">
+        <ion-icon name="eye" slot="start"></ion-icon>
+        View Solution
+      </ion-button>
+      
+      <ion-button fill="outline" (click)="surrenderBattle()">
+        <ion-icon name="flag" slot="start"></ion-icon>
+        Surrender
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Battle History -->
+  <div class="history-section">
+    <h3 class="section-title">Battle Timeline</h3>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let event of battleEvents">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <span class="event-time">{{ event.time }}</span>
+          <p class="event-description">{{ event.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

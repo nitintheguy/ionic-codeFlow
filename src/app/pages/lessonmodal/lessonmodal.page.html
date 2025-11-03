@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ getHeaderTitle() }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="lesson-modal-content">
+  <div class="modal-container">
+    <div class="animation-section">
+      <div class="lottie-animation" [id]="'modal-animation-' + animation"></div>
+    </div>
+    
+    <div class="text-section">
+      <h1 class="main-message">{{ message }}</h1>
+      <p class="subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+      <p class="lesson-title" *ngIf="node">"{{ node.title }}"</p>
+    </div>
+
+    <div class="action-section">
+      <ion-button expand="block" class="confirm-btn" (click)="dismiss()">
+        <ion-icon name="checkmark" slot="start"></ion-icon>
+        Got it!
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

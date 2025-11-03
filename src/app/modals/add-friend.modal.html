@@ -1,0 +1,61 @@
+<div class="add-friend-modal">
+  <div class="modal-header">
+    <h2>Add Friend</h2>
+    <ion-icon name="exit-outline" class="close-icon" (click)="dismiss()"></ion-icon>
+  </div>
+
+  <div class="modal-body">
+    <div class="search-section">
+      <ion-searchbar 
+        [(ngModel)]="searchQuery" 
+        (ionInput)="searchFriends()"
+        placeholder="Search by username or email"
+        class="custom-searchbar">
+      </ion-searchbar>
+    </div>
+
+    <div class="search-results" *ngIf="searchResults.length > 0">
+      <h4>Search Results</h4>
+      <div class="result-list">
+        <div class="result-item" *ngFor="let user of searchResults">
+          <div class="user-avatar">
+            <div class="lottie-container x-small" [id]="'search-' + user.id + '-animation'"></div>
+          </div>
+          <div class="user-info">
+            <h5>{{ user.name }}</h5>
+            <p>{{ user.title }}</p>
+          </div>
+          <button class="add-btn" (click)="sendFriendRequest(user)" [disabled]="user.requestSent">
+            {{ user.requestSent ? 'Sent' : 'Add' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="suggested-section" *ngIf="suggestedFriends.length > 0 && searchResults.length === 0">
+      <h4>Suggested Friends</h4>
+      <div class="suggested-list">
+        <div class="suggested-item" *ngFor="let user of suggestedFriends">
+          <div class="user-avatar">
+            <div class="lottie-container x-small" [id]="'suggested-' + user.id + '-animation'"></div>
+          </div>
+          <div class="user-info">
+            <h5>{{ user.name }}</h5>
+            <p>{{ user.mutualFriends }} mutual friends</p>
+          </div>
+          <button class="add-btn" (click)="sendFriendRequest(user)" [disabled]="user.requestSent">
+            {{ user.requestSent ? 'Sent' : 'Add' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="empty-state" *ngIf="searchResults.length === 0 && suggestedFriends.length === 0">
+      <div class="empty-icon">
+        <div class="lottie-container" id="empty-friends-animation"></div>
+      </div>
+      <h4>No friends found</h4>
+      <p>Try searching with a different username or email</p>
+    </div>
+  </div>
+</div>

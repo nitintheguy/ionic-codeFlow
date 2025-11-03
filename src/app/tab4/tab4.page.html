@@ -1,0 +1,394 @@
+<ion-content [fullscreen]="true" class="opportunities-content">
+  <!-- HEADER WITH STATS -->
+  <div class="opportunities-header">
+    <div class="header-content">
+      <div class="profile-section">
+        <div class="avatar-container">
+          <div class="lottie-container" id="pro-animation"></div>
+        </div>
+        <div class="profile-info">
+          <h1 class="player-name">Catto</h1>
+          <div class="achievement-badge">
+            <ion-icon name="rocket"></ion-icon>
+            <span>Active Participant</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="lottie-container small" id="hackathons-animation"></div>
+          <div class="stat-data">
+            <div class="stat-value">{{ userStats.hackathons }}</div>
+            <div class="stat-label">Hackathons</div>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="lottie-container small" id="applications-animation"></div>
+          <div class="stat-data">
+            <div class="stat-value">{{ userStats.applications }}</div>
+            <div class="stat-label">Applied</div>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="lottie-container small" id="wins-animation"></div>
+          <div class="stat-data">
+            <div class="stat-value">{{ userStats.wins }}</div>
+            <div class="stat-label">Wins</div>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="lottie-container small" id="network-animation"></div>
+          <div class="stat-data">
+            <div class="stat-value">{{ userStats.network }}</div>
+            <div class="stat-label">Connections</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <div class="quick-actions">
+    <button class="action-btn primary" (click)="findHackathons()">
+      <div class="lottie-container" id="webd-animation"></div>
+      <span>Find Hackathons</span>
+      <small>Live Events</small>
+    </button>
+    
+    <button class="action-btn secondary" (click)="exploreInternships()">
+      <div class="lottie-container" id="internships-animation"></div>
+      <span>Internships</span>
+      <small>Apply Now</small>
+    </button>
+  </div>
+
+  <!-- FEATURED HACKATHONS -->
+  <div class="section-header">
+    <h2>Featured Hackathons</h2>
+    <p>Upcoming coding competitions</p>
+  </div>
+
+  <div class="opportunities-container">
+    <div class="opportunity-card featured">
+      <div class="featured-badge">Featured</div>
+      <div class="card-header">
+        <div class="company-logo">
+          <div class="lottie-container" id="googleHackathon-animation"></div>
+        </div>
+        <div class="opportunity-info">
+          <h3 class="opportunity-title">{{ hackathons['google'].title }}</h3>
+          <p class="opportunity-host">By {{ hackathons['google'].host }}</p>
+          <div class="opportunity-meta">
+            <span class="participants">{{ hackathons['google'].participants.toLocaleString() }} participants</span>
+            <span class="prize">${{ hackathons['google'].prize.toLocaleString() }} Prize</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <p class="opportunity-description">
+          {{ hackathons['google'].description }}
+        </p>
+        
+        <div class="opportunity-details">
+          <div class="detail-item">
+            <ion-icon name="calendar"></ion-icon>
+            <span>Starts: {{ hackathons['google'].startDate }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="time"></ion-icon>
+            <span>{{ hackathons['google'].duration }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="location"></ion-icon>
+            <span>{{ hackathons['google'].location }}</span>
+          </div>
+        </div>
+
+        <div class="skill-tags">
+          <span class="skill-tag" *ngFor="let skill of hackathons['google'].skills">{{ skill }}</span>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="action-btn primary" (click)="registerHackathon('google')">
+          <ion-icon name="rocket"></ion-icon>
+          {{ hackathons['google'].registered ? 'Registered' : 'Register Now' }}
+        </button>
+        <button class="action-btn outline" (click)="showHackathonDetails('google')">
+          <ion-icon name="information-circle"></ion-icon>
+          Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Meta Hackathon -->
+    <div class="opportunity-card">
+      <div class="card-header">
+        <div class="company-logo">
+          <div class="lottie-container" id="facebookHackathon-animation"></div>
+        </div>
+        <div class="opportunity-info">
+          <h3 class="opportunity-title">{{ hackathons['meta'].title }}</h3>
+          <p class="opportunity-host">By {{ hackathons['meta'].host }}</p>
+          <div class="opportunity-meta">
+            <span class="participants">{{ hackathons['meta'].participants.toLocaleString() }} participants</span>
+            <span class="prize">${{ hackathons['meta'].prize.toLocaleString() }} Prize</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <p class="opportunity-description">
+          {{ hackathons['meta'].description }}
+        </p>
+        
+        <div class="opportunity-details">
+          <div class="detail-item">
+            <ion-icon name="calendar"></ion-icon>
+            <span>Starts: {{ hackathons['meta'].startDate }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="time"></ion-icon>
+            <span>{{ hackathons['meta'].duration }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="location"></ion-icon>
+            <span>{{ hackathons['meta'].location }}</span>
+          </div>
+        </div>
+
+        <div class="skill-tags">
+          <span class="skill-tag" *ngFor="let skill of hackathons['meta'].skills">{{ skill }}</span>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="action-btn primary" (click)="registerHackathon('meta')">
+          <ion-icon name="rocket"></ion-icon>
+          {{ hackathons['meta'].registered ? 'Registered' : 'Register Now' }}
+        </button>
+        <button class="action-btn outline" (click)="showHackathonDetails('meta')">
+          <ion-icon name="information-circle"></ion-icon>
+          Details
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP INTERNSHIPS -->
+  <div class="section-header">
+    <h2>Featured Internships</h2>
+    <p>Jumpstart your career</p>
+  </div>
+
+  <div class="opportunities-container">
+    <div class="opportunity-card internship">
+      <div class="card-header">
+        <div class="company-logo">
+          <div class="lottie-container" id="microsoftInternship-animation"></div>
+        </div>
+        <div class="opportunity-info">
+          <h3 class="opportunity-title">{{ internships['microsoft'].title }}</h3>
+          <p class="opportunity-host">{{ internships['microsoft'].company }} • {{ internships['microsoft'].location }}</p>
+          <div class="opportunity-meta">
+            <span class="salary">${{ internships['microsoft'].salary.toLocaleString() }}/month</span>
+            <span class="duration">{{ internships['microsoft'].duration }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <p class="opportunity-description">
+          {{ internships['microsoft'].description }}
+        </p>
+        
+        <div class="opportunity-details">
+          <div class="detail-item">
+            <ion-icon name="school"></ion-icon>
+            <span>{{ internships['microsoft'].requirements }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="time"></ion-icon>
+            <span>Apply by: {{ internships['microsoft'].applyBy }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="briefcase"></ion-icon>
+            <span>{{ internships['microsoft'].type }}</span>
+          </div>
+        </div>
+
+        <div class="skill-tags">
+          <span class="skill-tag" *ngFor="let skill of internships['microsoft'].skills">{{ skill }}</span>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="action-btn primary" (click)="applyInternship('microsoft')">
+          <ion-icon name="document"></ion-icon>
+          {{ internships['microsoft'].applied ? 'Applied' : 'Apply Now' }}
+        </button>
+        <button class="action-btn outline" (click)="saveInternship('microsoft')">
+          <ion-icon [name]="internships['microsoft'].saved ? 'bookmark' : 'bookmark-outline'"></ion-icon>
+          {{ internships['microsoft'].saved ? 'Saved' : 'Save' }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Startup Internship -->
+    <div class="opportunity-card internship">
+      <div class="card-header">
+        <div class="company-logo">
+          <div class="lottie-container" id="startupInternship-animation"></div>
+        </div>
+        <div class="opportunity-info">
+          <h3 class="opportunity-title">{{ internships['techstart'].title }}</h3>
+          <p class="opportunity-host">{{ internships['techstart'].company }} • {{ internships['techstart'].location }}</p>
+          <div class="opportunity-meta">
+            <span class="salary">${{ internships['techstart'].salary.toLocaleString() }}/month</span>
+            <span class="duration">{{ internships['techstart'].duration }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <p class="opportunity-description">
+          {{ internships['techstart'].description }}
+        </p>
+        
+        <div class="opportunity-details">
+          <div class="detail-item">
+            <ion-icon name="school"></ion-icon>
+            <span>{{ internships['techstart'].requirements }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="time"></ion-icon>
+            <span>Apply by: {{ internships['techstart'].applyBy }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="briefcase"></ion-icon>
+            <span>{{ internships['techstart'].type }}</span>
+          </div>
+        </div>
+
+        <div class="skill-tags">
+          <span class="skill-tag" *ngFor="let skill of internships['techstart'].skills">{{ skill }}</span>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="action-btn primary" (click)="applyInternship('techstart')">
+          <ion-icon name="document"></ion-icon>
+          {{ internships['techstart'].applied ? 'Applied' : 'Apply Now' }}
+        </button>
+        <button class="action-btn outline" (click)="saveInternship('techstart')">
+          <ion-icon [name]="internships['techstart'].saved ? 'bookmark' : 'bookmark-outline'"></ion-icon>
+          {{ internships['techstart'].saved ? 'Saved' : 'Save' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS & UPDATES -->
+  <div class="section-header">
+    <h2>Tech News & Updates</h2>
+    <p>Stay informed with latest trends</p>
+  </div>
+
+  <div class="news-container">
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-category ai">AI</div>
+        <div class="news-time">2 hours ago</div>
+      </div>
+      <h3 class="news-title">OpenAI Releases New GPT-4 Turbo</h3>
+      <p class="news-excerpt">
+        Enhanced capabilities with 128K context window and improved reasoning for developers.
+      </p>
+      <div class="news-actions">
+        <button class="news-btn">
+          <ion-icon name="ellipse"></ion-icon>
+          Read More
+        </button>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-category web">Web</div>
+        <div class="news-time">5 hours ago</div>
+      </div>
+      <h3 class="news-title">Angular 17 Released with New Features</h3>
+      <p class="news-excerpt">
+        Signals, improved performance, and better developer experience announced.
+      </p>
+      <div class="news-actions">
+        <button class="news-btn">
+          <ion-icon name="ellipse"></ion-icon>
+          Read More
+        </button>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-category career">Career</div>
+        <div class="news-time">1 day ago</div>
+      </div>
+      <h3 class="news-title">Remote Work Trends 2024 Report</h3>
+      <p class="news-excerpt">
+        How tech companies are adapting to hybrid work models and global hiring.
+      </p>
+      <div class="news-actions">
+        <button class="news-btn">
+          <ion-icon name="ellipse"></ion-icon>
+          Read More
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPCOMING EVENTS -->
+  <div class="section-header">
+    <h2>Upcoming Events</h2>
+    <p>Tech conferences and meetups</p>
+  </div>
+
+  <div class="events-container">
+    <div class="event-card">
+      <div class="event-date">
+        <div class="date-day">15</div>
+        <div class="date-month">DEC</div>
+      </div>
+      <div class="event-details">
+        <h4 class="event-title">React Conference 2024</h4>
+        <p class="event-location">San Francisco, CA</p>
+        <div class="event-type virtual">Virtual Option</div>
+      </div>
+      <button class="event-btn">
+        <ion-icon name="calendar"></ion-icon>
+        RSVP
+      </button>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">
+        <div class="date-day">20</div>
+        <div class="date-month">JAN</div>
+      </div>
+      <div class="event-details">
+        <h4 class="event-title">AI & ML Summit</h4>
+        <p class="event-location">New York, NY</p>
+        <div class="event-type in-person">In Person</div>
+      </div>
+      <button class="event-btn">
+        <ion-icon name="calendar"></ion-icon>
+        RSVP
+      </button>
+    </div>
+  </div>
+</ion-content>

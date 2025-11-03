@@ -1,0 +1,128 @@
+.edit-profile-content {
+  --background: #FDF6E3;
+}
+
+.primary-toolbar {
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+  --color: white !important;
+  
+  ion-button {
+    --color: white !important;
+    
+    ion-icon {
+      color: white !important;
+      font-size: 24px;
+    }
+  }
+  
+  ion-title {
+    --color: white !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}
+
+// Rest of your existing edit-profile CSS
+.profile-picture-section {
+  text-align: center;
+  padding: 24px 20px;
+  background: white;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+
+  .avatar-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 16px;
+
+    .lottie-container {
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+      background: rgba(255, 107, 129, 0.1);
+    }
+
+    .change-photo-btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #FF6B81;
+      border: 3px solid white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 2px 0 #E05570;
+
+      ion-icon {
+        font-size: 20px;
+      }
+    }
+  }
+
+  h3 {
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+  }
+}
+
+.form-section {
+  background: white;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+  overflow: hidden;
+
+  ion-list {
+    background: transparent;
+    padding: 0;
+
+    ion-item {
+      --background: transparent;
+      --padding-start: 16px;
+      --padding-end: 16px;
+      --inner-padding-end: 0;
+      --border-color: rgba(255, 107, 129, 0.1);
+      --min-height: 70px;
+
+      ion-label {
+        color: #666;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      ion-input, ion-textarea {
+        --padding-start: 0;
+        --padding-end: 0;
+        --color: #333;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.danger-section {
+  padding: 20px;
+
+  h4 {
+    margin: 0 0 16px 16px;
+    color: #666;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  ion-button {
+    --border-radius: 12px;
+    --border-width: 2px;
+    --border-color: var(--ion-color-danger);
+    --color: var(--ion-color-danger);
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,578 @@
+.challenges-content {
+  --background: #FDF6E3;
+  --padding-top: 0;
+}
+
+/* HEADER */
+.challenges-header {
+  background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  border-radius: 0 0 28px 28px;
+  padding: 20px;
+  margin: 0;
+  box-shadow: 0 8px 0 rgba(200, 60, 80, 0.5), 0 12px 24px rgba(0, 0, 0, 0.12);
+  color: white;
+}
+
+.header-content {
+  .profile-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .avatar-container {
+    .lottie-container {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .profile-info {
+    flex: 1;
+  }
+
+  .player-name {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+  }
+
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    
+    &.gold {
+      background: linear-gradient(135deg, #FFD93D 0%, #FCB900 100%);
+      color: #7A6500;
+    }
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  
+  .lottie-container.small {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    
+    svg {
+      width: 30px !important;
+      height: 30px !important;
+    }
+  }
+
+  .stat-data {
+    flex: 1;
+  }
+
+  .stat-value {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    opacity: 0.9;
+    margin-top: 4px;
+  }
+}
+
+/* QUICK ACTIONS */
+.quick-actions {
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 16px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &.primary {
+    background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+    color: white;
+    box-shadow: 0 6px 0 #E05570, 0 8px 20px rgba(255, 107, 129, 0.3);
+  }
+  
+  &.secondary {
+    background: white;
+    border: 2px solid rgba(255, 107, 129, 0.3);
+    color: #FF6B81;
+  }
+  
+  .lottie-container {
+    width: 50px;
+    height: 50px;
+    
+    svg {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  }
+  
+  span {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  
+  small {
+    font-size: 11px;
+    opacity: 0.8;
+    font-weight: 500;
+  }
+}
+
+/* RANK PROGRESSION */
+.section-header {
+  padding: 0 20px;
+  margin: 30px 0 20px 0;
+  
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 8px 0;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+}
+
+.rank-container {
+  background: white;
+  margin: 0 20px 20px 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.rank-progress {
+  margin-bottom: 20px;
+}
+
+.rank-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  
+  .rank {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    
+    &.current {
+      color: #FF6B81;
+    }
+    
+    &.next {
+      color: #666;
+    }
+  }
+}
+
+.progress-bar {
+  height: 8px;
+  background: #F0F0F0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+    border-radius: 4px;
+  }
+  
+  .current-position {
+    position: absolute;
+    top: -20px;
+    left: 60%;
+    transform: translateX(-50%);
+    background: #FF6B81;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+}
+
+.rank-rewards {
+  display: flex;
+  gap: 16px;
+  
+  .reward-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #666;
+    
+    ion-icon {
+      color: #FFD93D;
+      font-size: 16px;
+    }
+  }
+}
+
+/* MATCHES */
+.matches-container {
+  padding: 0 20px 20px 20px;
+}
+
+.match-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.match-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  
+  .player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    
+    &.you {
+      justify-content: flex-start;
+    }
+    
+    &.opponent {
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+    }
+    
+    .player-avatar .lottie-container.small {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: rgba(255, 107, 129, 0.1);
+    }
+    
+    .player-info {
+      text-align: center;
+      
+      strong {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      
+      span {
+        font-size: 11px;
+        color: #666;
+      }
+    }
+  }
+  
+  .vs-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    
+    .vs-badge {
+      background: #FF6B81;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    
+    .match-info {
+      text-align: center;
+      
+      .match-type {
+        font-size: 11px;
+        color: #666;
+        display: block;
+      }
+      
+      .match-timer {
+        font-size: 12px;
+        font-weight: 700;
+        color: #FF6B81;
+      }
+    }
+  }
+}
+
+.match-content {
+  .problem-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    
+    h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0;
+      color: #333;
+    }
+    
+    .difficulty {
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      
+      &.medium {
+        background: rgba(255, 217, 61, 0.2);
+        color: #FCB900;
+      }
+    }
+  }
+}
+
+.progress-comparison {
+  .progress-item {
+    margin-bottom: 12px;
+    
+    span {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    
+    .progress-bar {
+      height: 6px;
+      background: #F0F0F0;
+      border-radius: 3px;
+      overflow: hidden;
+      
+      .progress-fill {
+        height: 100%;
+        border-radius: 3px;
+        
+        &.you {
+          background: linear-gradient(135deg, #58CC02 0%, #46A302 100%);
+        }
+        
+        &.opponent {
+          background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+        }
+      }
+    }
+  }
+}
+
+.match-actions {
+  .match-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    
+    &.primary {
+      background: linear-gradient(135deg, #1CB0F6 0%, #1899D6 100%);
+      color: white;
+      box-shadow: 0 4px 0 #1588c0;
+    }
+  }
+}
+
+/* LEADERBOARD */
+.leaderboard-container {
+  padding: 0 20px 20px 20px;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  
+  &.top {
+    background: linear-gradient(135deg, #FFD93D 0%, #FCB900 100%);
+    
+    .player-name, .player-stats {
+      color: #7A6500;
+    }
+  }
+  
+  &.you {
+    border: 2px solid #FF6B81;
+  }
+  
+  .rank {
+    font-size: 18px;
+    font-weight: 800;
+    color: #FF6B81;
+    min-width: 30px;
+  }
+  
+  .player-avatar .lottie-container.small {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: rgba(255, 107, 129, 0.1);
+  }
+  
+  .player-details {
+    flex: 1;
+    
+    .player-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: #333;
+    }
+    
+    .player-stats {
+      display: flex;
+      gap: 12px;
+      
+      span {
+        font-size: 11px;
+        color: #666;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .rank-badge {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 800;
+    color: white;
+    
+    &.master {
+      background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+    }
+    
+    &.diamond {
+      background: linear-gradient(135deg, #1CB0F6 0%, #1899D6 100%);
+    }
+    
+    &.gold {
+      background: linear-gradient(135deg, #FFD93D 0%, #FCB900 100%);
+      color: #7A6500;
+    }
+  }
+}
+
+/* TIERS */
+.tiers-container {
+  padding: 0 20px 40px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.tier-item {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  
+  .tier-icon .lottie-container {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 12px auto;
+    border-radius: 16px;
+    background: rgba(255, 107, 129, 0.1);
+  }
+  
+  .tier-info {
+    h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      color: #333;
+    }
+    
+    p {
+      font-size: 12px;
+      color: #666;
+      margin: 0 0 8px 0;
+    }
+    
+    .tier-count {
+      font-size: 11px;
+      color: #999;
+      font-weight: 600;
+    }
+  }
+}
+
+/* LOTTIE CONTAINER BASE */
+.lottie-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  svg {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  &.small {
+    width: 40px;
+    height: 40px;
+  }
+}

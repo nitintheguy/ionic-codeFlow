@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Course Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="course-details-content">
+  <div class="course-hero">
+    <div class="course-image-large">
+      <div class="lottie-container-large" id="details-animation"></div>
+    </div>
+    <div class="course-hero-info">
+      <h1 class="course-title-large">{{ course?.title }}</h1>
+      <p class="course-instructor-large">By {{ course?.instructor }}</p>
+      <div class="rating-large">
+        <span class="stars">★★★★★</span>
+        <span class="rating-text">{{ course?.rating }} ({{ course?.reviews }} reviews)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h3 class="section-title">About This Course</h3>
+    <p class="course-full-description">{{ course?.fullDescription }}</p>
+  </div>
+
+  <div class="details-section">
+    <h3 class="section-title">What You'll Learn</h3>
+    <div class="features-list">
+      <div class="feature-item" *ngFor="let feature of course?.features">
+        <ion-icon name="checkmark-circle" class="feature-icon"></ion-icon>
+        <span>{{ feature }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h3 class="section-title">Curriculum</h3>
+    <div class="curriculum-list">
+      <div class="curriculum-item" *ngFor="let module of course?.curriculum; let i = index">
+        <div class="module-header">
+          <div class="module-number">Module {{ i + 1 }}</div>
+          <div class="module-duration">{{ module.duration }}</div>
+        </div>
+        <h4 class="module-title">{{ module.title }}</h4>
+        <p class="module-lessons">{{ module.lessons }} lessons</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-section" *ngIf="!isEnrolled">
+    <div class="pricing">
+      <span class="price">${{ course?.price }}</span>
+      <span class="price-note">one-time payment</span>
+    </div>
+    <ion-button expand="block" class="enroll-btn-large" (click)="enrollCourse()">
+      <ion-icon name="cart" slot="start"></ion-icon>
+      Enroll Now
+    </ion-button>
+  </div>
+</ion-content>

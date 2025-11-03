@@ -1,0 +1,195 @@
+.upgrade-content {
+  --background: #FDF6E3;
+}
+
+.primary-toolbar {
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+  --color: white !important;
+  
+  ion-button {
+    --color: white !important;
+    
+    ion-icon {
+      color: white !important;
+      font-size: 24px;
+    }
+  }
+  
+  ion-title {
+    --color: white !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}
+
+// Rest of your existing upgrade-plans CSS
+.plans-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .plan-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    position: relative;
+
+    &.recommended {
+      border-color: #FF6B81;
+      transform: scale(1.02);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #FF6B81;
+      color: white;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 2px 0 #E05570;
+    }
+
+    .plan-header {
+      text-align: center;
+      margin-bottom: 24px;
+
+      h3 {
+        margin: 0 0 8px;
+        color: #333;
+        font-weight: 700;
+        font-size: 24px;
+      }
+
+      .plan-price {
+        .price {
+          font-size: 32px;
+          font-weight: 800;
+          color: #333;
+        }
+
+        .period {
+          color: #666;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .plan-features {
+      margin-bottom: 24px;
+
+      .feature {
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+
+        &.disabled {
+          opacity: 0.5;
+        }
+
+        .feature-icon {
+          margin-right: 12px;
+          font-size: 20px;
+          min-width: 20px;
+
+          &.checkmark {
+            color: #58CC02;
+          }
+
+          &.close {
+            color: #666;
+          }
+        }
+
+        span {
+          color: #333;
+          font-weight: 500;
+        }
+      }
+    }
+
+    ion-button {
+      --border-radius: 12px;
+      --box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+      font-weight: 600;
+
+      &[fill="solid"] {
+        --background: #FF6B81;
+        --background-activated: #E05570;
+        --background-focused: #E05570;
+      }
+    }
+  }
+}
+
+.comparison-section {
+  background: white;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+  padding: 20px;
+  overflow-x: auto;
+
+  h3 {
+    margin: 0 0 20px;
+    color: #333;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .comparison-table {
+    min-width: 500px;
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 1px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 107, 129, 0.1);
+
+      &.header {
+        background: rgba(255, 107, 129, 0.05);
+        border-radius: 8px;
+        font-weight: 600;
+
+        .feature-name {
+          color: #333;
+        }
+
+        .plan-value {
+          text-align: center;
+          color: #333;
+        }
+      }
+
+      .feature-name {
+        color: #666;
+        font-weight: 500;
+        padding: 0 8px;
+      }
+
+      .plan-value {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.free { background: rgba(0, 0, 0, 0.02); }
+        &.pro { background: rgba(255, 107, 129, 0.05); }
+        &.enterprise { background: rgba(255, 107, 129, 0.08); }
+
+        ion-icon {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

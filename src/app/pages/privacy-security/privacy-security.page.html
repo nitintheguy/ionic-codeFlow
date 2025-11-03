@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Privacy & Security</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="privacy-content">
+  <div class="settings-section">
+    <h3>Privacy Settings</h3>
+    
+    <ion-list>
+      <ion-item>
+        <ion-toggle [(ngModel)]="privacy.profilePublic" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Public Profile</h4>
+          <p>Allow others to view your profile</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle [(ngModel)]="privacy.showActivity" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Show Activity</h4>
+          <p>Display your recent activity to others</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle [(ngModel)]="privacy.allowFriendRequests" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Friend Requests</h4>
+          <p>Allow others to send friend requests</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="settings-section">
+    <h3>Security</h3>
+    
+    <ion-list>
+      <ion-item button (click)="changePassword()">
+        <ion-icon name="key" slot="start" color="primary"></ion-icon>
+        <ion-label>
+          <h4>Change Password</h4>
+          <p>Update your account password</p>
+        </ion-label>
+        <ion-icon name="chevron-forward" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item button (click)="twoFactorAuth()">
+        <ion-icon name="shield-checkmark" slot="start" color="primary"></ion-icon>
+        <ion-label>
+          <h4>Two-Factor Authentication</h4>
+          <p>Extra security for your account</p>
+        </ion-label>
+        <ion-toggle [(ngModel)]="privacy.twoFactorEnabled" (ionChange)="toggleTwoFactor()"></ion-toggle>
+      </ion-item>
+
+      <ion-item button (click)="loginActivity()">
+        <ion-icon name="time" slot="start" color="primary"></ion-icon>
+        <ion-label>
+          <h4>Login Activity</h4>
+          <p>Review recent account access</p>
+        </ion-label>
+        <ion-icon name="chevron-forward" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="settings-section">
+    <h3>Data & Permissions</h3>
+    
+    <ion-list>
+      <ion-item button (click)="dataExport()">
+        <ion-icon name="download" slot="start" color="primary"></ion-icon>
+        <ion-label>
+          <h4>Export Data</h4>
+          <p>Download your personal data</p>
+        </ion-label>
+        <ion-icon name="chevron-forward" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item button (click)="clearHistory()">
+        <ion-icon name="trash" slot="start" color="primary"></ion-icon>
+        <ion-label>
+          <h4>Clear History</h4>
+          <p>Delete your activity history</p>
+        </ion-label>
+        <ion-icon name="chevron-forward" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

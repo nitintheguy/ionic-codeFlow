@@ -1,0 +1,438 @@
+.learning-content {
+  --background: #FDF6E3;
+  --padding-top: 0;
+}
+
+/* HEADER */
+.learning-header {
+  background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  border-radius: 0 0 28px 28px;
+  padding: 20px;
+  margin: 0;
+  box-shadow: 0 8px 0 rgba(200, 60, 80, 0.5), 0 12px 24px rgba(0, 0, 0, 0.12);
+  color: white;
+}
+
+.header-content {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+}
+
+.header-subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.header-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* FILTER BAR */
+.filter-bar {
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid rgba(255, 107, 129, 0.1);
+  border-radius: 2em;
+  margin: 12px 20px;
+}
+
+.filter-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: 2px solid rgba(255, 107, 129, 0.2);
+  border-radius: 20px;
+  background: white;
+  color: #666;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &.active {
+    background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+    color: white;
+    border-color: #FF6B81;
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+/* COURSE CARDS */
+.courses-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 107, 129, 0.1);
+  position: relative;
+  
+  &.featured {
+    border: 2px solid #FFD93D;
+  }
+}
+
+.featured-badge {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: linear-gradient(135deg, #FFD93D 0%, #FCB900 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 217, 61, 0.3);
+}
+
+.card-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+
+.course-image {
+  flex-shrink: 0;
+  
+}
+
+.lottie-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  background: rgba(255, 107, 129, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  // Different background colors for different course types
+  #fullstack-animation {
+    background: linear-gradient(135deg, rgba(255, 107, 129, 0.1) 0%, rgba(255, 142, 158, 0.1) 100%);
+  }
+  
+  #javascript-animation {
+    background: linear-gradient(135deg, rgba(247, 223, 30, 0.1) 0%, rgba(214, 186, 0, 0.1) 100%);
+  }
+  
+  #datascience-animation {
+    background: linear-gradient(135deg, rgba(28, 176, 246, 0.1) 0%, rgba(24, 153, 214, 0.1) 100%);
+  }
+  
+  #uiux-animation {
+    background: linear-gradient(135deg, rgba(88, 204, 2, 0.1) 0%, rgba(70, 163, 2, 0.1) 100%);
+  }
+}
+
+.fallback-icon {
+  font-size: 32px;
+  color: #FF6B81;
+  
+  #javascript-animation & {
+    color: #F7DF1E;
+  }
+  
+  #datascience-animation & {
+    color: #1CB0F6;
+  }
+  
+  #uiux-animation & {
+    color: #58CC02;
+  }
+}
+.course-image {
+  .lottie-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    background: rgba(255, 107, 129, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.course-icon {
+  font-size: 32px;
+  color: white;
+}
+
+.course-info {
+  flex: 1;
+}
+
+.course-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.course-instructor {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  color: #FFD93D;
+  font-size: 14px;
+}
+
+.rating-text {
+  font-size: 12px;
+  color: #888;
+}
+
+/* CARD CONTENT */
+.card-content {
+  margin-bottom: 20px;
+}
+
+.course-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.course-details {
+  display: flex;
+  gap: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #666;
+  
+  ion-icon {
+    color: #FF6B81;
+    font-size: 16px;
+  }
+}
+
+/* PROGRESS */
+.progress-section {
+  margin-top: 16px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #F0F0F0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #58CC02 0%, #46A302 100%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* CARD ACTIONS */
+.card-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &.primary {
+    background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+    color: white;
+    box-shadow: 0 4px 0 #E05570, 0 6px 12px rgba(255, 107, 129, 0.3);
+  }
+  
+  &.secondary {
+    background: linear-gradient(135deg, #1CB0F6 0%, #1899D6 100%);
+    color: white;
+    box-shadow: 0 4px 0 #1588c0, 0 6px 12px rgba(28, 176, 246, 0.3);
+  }
+  
+  &.outline {
+    background: white;
+    color: #FF6B81;
+    border: 2px solid rgba(255, 107, 129, 0.3);
+  }
+}
+
+/* QUIZ SECTION */
+.section-header {
+  padding: 0 20px;
+  margin: 40px 0 20px 0;
+  
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 8px 0;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+}
+
+.quizzes-container {
+  padding: 0 20px 40px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.quiz-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 107, 129, 0.1);
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.quiz-badge {
+  background: rgba(255, 107, 129, 0.1);
+  color: #FF6B81;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.quiz-difficulty {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  
+  &.easy {
+    background: rgba(88, 204, 2, 0.1);
+    color: #58CC02;
+  }
+  
+  &.medium {
+    background: rgba(255, 217, 61, 0.1);
+    color: #FCB900;
+  }
+}
+
+.quiz-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.quiz-description {
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 16px 0;
+}
+
+.quiz-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  background: rgba(255, 107, 129, 0.1);
+  color: #FF6B81;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+

@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Practice Mode</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="practice-content">
+  <!-- Practice Header -->
+  <div class="practice-header">
+    <div class="lottie-container" id="practice-header-animation"></div>
+    <h2>Improve Your Skills</h2>
+    <p>Solve problems at your own pace</p>
+  </div>
+
+  <!-- Difficulty Selection -->
+  <div class="difficulty-section">
+    <h3 class="section-title">Choose Difficulty</h3>
+    <div class="difficulty-options">
+      <div class="difficulty-option" 
+           *ngFor="let diff of difficulties"
+           [class.selected]="selectedDifficulty === diff.level"
+           (click)="selectDifficulty(diff.level)">
+        <div class="difficulty-icon">
+          <div class="lottie-container" [id]="'diff-' + diff.level + '-animation'"></div>
+        </div>
+        <div class="difficulty-info">
+          <h4>{{ diff.name }}</h4>
+          <p>{{ diff.description }}</p>
+          <span class="problem-count">{{ diff.problems }} problems</span>
+        </div>
+        <div class="difficulty-check">
+          <ion-icon name="checkmark-circle" *ngIf="selectedDifficulty === diff.level"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem Categories -->
+  <div class="categories-section">
+    <h3 class="section-title">Problem Categories</h3>
+    <div class="categories-grid">
+      <div class="category-card" 
+           *ngFor="let category of categories"
+           [class.selected]="selectedCategory === category.id"
+           (click)="selectCategory(category.id)">
+        <div class="category-icon">
+          <div class="lottie-container" [id]="'category-' + category.id + '-animation'"></div>
+        </div>
+        <h4>{{ category.name }}</h4>
+        <p>{{ category.description }}</p>
+        <div class="category-stats">
+          <span class="solved">{{ category.solved }}/{{ category.total }} solved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Practice Settings -->
+  <div class="settings-section">
+    <h3 class="section-title">Practice Settings</h3>
+    <div class="settings-options">
+      <div class="setting-option">
+        <div class="setting-info">
+          <h4>Time Limit</h4>
+          <p>Set maximum time per problem</p>
+        </div>
+        <div class="setting-control">
+          <ion-segment [(ngModel)]="timeLimit" (ionChange)="updateTimeLimit()">
+            <ion-segment-button value="15">
+              <ion-label>15m</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="30">
+              <ion-label>30m</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="60">
+              <ion-label>60m</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+      </div>
+
+      <div class="setting-option">
+        <div class="setting-info">
+          <h4>Show Hints</h4>
+          <p>Get help when stuck</p>
+        </div>
+        <div class="setting-control">
+          <ion-toggle [(ngModel)]="showHints" (ionChange)="updateHints()"></ion-toggle>
+        </div>
+      </div>
+
+      <div class="setting-option">
+        <div class="setting-info">
+          <h4>Test Cases</h4>
+          <p>Number of test cases to run</p>
+        </div>
+        <div class="setting-control">
+          <ion-segment [(ngModel)]="testCases" (ionChange)="updateTestCases()">
+            <ion-segment-button value="3">
+              <ion-label>Basic</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="5">
+              <ion-label>Standard</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="10">
+              <ion-label>Full</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Practice -->
+  <div class="start-section">
+    <ion-button expand="block" class="start-btn" (click)="startPractice()" [disabled]="!selectedDifficulty">
+      <ion-icon name="play" slot="start"></ion-icon>
+      Start Practice Session
+    </ion-button>
+    
+    <div class="session-info">
+      <div class="info-item">
+        <ion-icon name="time"></ion-icon>
+        <span>{{ getTimeLimitText() }}</span>
+      </div>
+      <div class="info-item">
+        <ion-icon name="help-circle"></ion-icon>
+        <span>{{ showHints ? 'Hints Enabled' : 'No Hints' }}</span>
+      </div>
+      <div class="info-item">
+        <ion-icon name="list"></ion-icon>
+        <span>{{ testCases }} Test Cases</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,164 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Upgrade Plan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="upgrade-content">
+  <div class="plans-container">
+    <!-- Free Plan -->
+    <div class="plan-card" [class.recommended]="false">
+      <div class="plan-badge">Current</div>
+      
+      <div class="plan-header">
+        <h3>Free</h3>
+        <div class="plan-price">
+          <span class="price">$0</span>
+          <span class="period">/month</span>
+        </div>
+      </div>
+
+      <div class="plan-features">
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>50 Debugging Tokens/Month</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Basic Code Explanations</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Standard Support</span>
+        </div>
+        <div class="feature disabled">
+          <ion-icon name="close" class="feature-icon"></ion-icon>
+          <span>Career Analytics</span>
+        </div>
+        <div class="feature disabled">
+          <ion-icon name="close" class="feature-icon"></ion-icon>
+          <span>Priority Support</span>
+        </div>
+      </div>
+
+      <ion-button expand="block" fill="outline" disabled>
+        Current Plan
+      </ion-button>
+    </div>
+
+    <!-- Pro Plan -->
+    <div class="plan-card" [class.recommended]="true">
+      <div class="plan-badge">Most Popular</div>
+      
+      <div class="plan-header">
+        <h3>Pro</h3>
+        <div class="plan-price">
+          <span class="price">$9.99</span>
+          <span class="period">/month</span>
+        </div>
+      </div>
+
+      <div class="plan-features">
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Unlimited Debugging Tokens</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Advanced Code Explanations</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Priority Support</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Basic Career Analytics</span>
+        </div>
+        <div class="feature disabled">
+          <ion-icon name="close" class="feature-icon"></ion-icon>
+          <span>Advanced Analytics</span>
+        </div>
+      </div>
+
+      <ion-button expand="block" fill="solid" (click)="selectPlan('pro')">
+        Upgrade to Pro
+      </ion-button>
+    </div>
+
+    <!-- Enterprise Plan -->
+    <div class="plan-card" [class.recommended]="false">
+      <div class="plan-badge">Best Value</div>
+      
+      <div class="plan-header">
+        <h3>Enterprise</h3>
+        <div class="plan-price">
+          <span class="price">$19.99</span>
+          <span class="period">/month</span>
+        </div>
+      </div>
+
+      <div class="plan-features">
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Everything in Pro</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Advanced Career Analytics</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Personalized Roadmaps</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Dedicated Support</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark" class="feature-icon"></ion-icon>
+          <span>Team Collaboration</span>
+        </div>
+      </div>
+
+      <ion-button expand="block" fill="solid" (click)="selectPlan('enterprise')">
+        Choose Enterprise
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Features Comparison -->
+  <div class="comparison-section">
+    <h3>Plan Comparison</h3>
+    
+    <div class="comparison-table">
+      <div class="comparison-row header">
+        <div class="feature-name">Feature</div>
+        <div class="plan-value free">Free</div>
+        <div class="plan-value pro">Pro</div>
+        <div class="plan-value enterprise">Enterprise</div>
+      </div>
+
+      <div class="comparison-row" *ngFor="let feature of comparisonFeatures">
+        <div class="feature-name">{{ feature.name }}</div>
+        <div class="plan-value free">
+          <ion-icon [name]="feature.free ? 'checkmark' : 'close'" 
+                   [color]="feature.free ? 'success' : 'medium'"></ion-icon>
+        </div>
+        <div class="plan-value pro">
+          <ion-icon [name]="feature.pro ? 'checkmark' : 'close'" 
+                   [color]="feature.pro ? 'success' : 'medium'"></ion-icon>
+        </div>
+        <div class="plan-value enterprise">
+          <ion-icon [name]="feature.enterprise ? 'checkmark' : 'close'" 
+                   [color]="feature.enterprise ? 'success' : 'medium'"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

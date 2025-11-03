@@ -1,0 +1,247 @@
+<ion-content [fullscreen]="true" class="profile-content">
+  <!-- PROFILE HEADER CARD -->
+  <div class="profile-card">
+    <div class="profile-header">
+      <div class="avatar-section">
+        <div class="avatar-container">
+          <div class="lottie-container" id="profileAvatar-animation"></div>
+        </div>
+        <div class="level-badge">
+          <div class="lottie-container x-small" id="level-animation"></div>
+          <span>Level 15</span>
+        </div>
+      </div>
+      
+      <div class="profile-info">
+        <h1 class="profile-name">Catto</h1>
+        <p class="profile-title">Full Stack Developer</p>
+        <div class="profile-stats">
+          <div class="stat">
+            <div class="stat-value">127</div>
+            <div class="stat-label">Problems</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">42d</div>
+            <div class="stat-label">Streak</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">1.2k</div>
+            <div class="stat-label">Points</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-badges">
+      <div class="badge-item">
+        <div class="lottie-container x-small" id="badge1-animation"></div>
+        <span>Pro Coder</span>
+      </div>
+      <div class="badge-item">
+        <div class="lottie-container x-small" id="badge2-animation"></div>
+        <span>Fast Learner</span>
+      </div>
+      <div class="badge-item">
+        <div class="lottie-container x-small" id="badge3-animation"></div>
+        <span>Bug Hunter</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCOUNT SETTINGS -->
+  <div class="section">
+    <h2 class="section-title">Account Settings</h2>
+    <div class="settings-list">
+      <div class="setting-item" (click)="editProfile()">
+        <div class="setting-icon">
+          <div class="lottie-container small" id="edit-profile-animation"></div>
+        </div>
+        <div class="setting-content">
+          <h4>Edit Profile</h4>
+          <p>Update your personal information</p>
+        </div>
+        <ion-icon name="chevron-forward" class="setting-arrow"></ion-icon>
+      </div>
+
+      <div class="setting-item" (click)="notificationSettings()">
+        <div class="setting-icon">
+          <div class="lottie-container small" id="notifications-animation"></div>
+        </div>
+        <div class="setting-content">
+          <h4>Notifications</h4>
+          <p>Manage your notification preferences</p>
+        </div>
+        <ion-icon name="chevron-forward" class="setting-arrow"></ion-icon>
+      </div>
+
+      <div class="setting-item" (click)="privacySettings()">
+        <div class="setting-icon">
+          <div class="lottie-container small" id="privacy-animation"></div>
+        </div>
+        <div class="setting-content">
+          <h4>Privacy & Security</h4>
+          <p>Control your privacy settings</p>
+        </div>
+        <ion-icon name="chevron-forward" class="setting-arrow"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBSCRIPTION -->
+  <div class="section">
+    <h2 class="section-title">Subscription</h2>
+    <div class="subscription-card">
+      <div class="subscription-header">
+        <div class="subscription-icon">
+          <div class="lottie-container" id="subscription-animation"></div>
+        </div>
+        <div class="subscription-info">
+          <h3>Pro Plan</h3>
+          <p>Active • Renews Dec 30, 2024</p>
+        </div>
+      </div>
+      
+      <div class="subscription-features">
+        <div class="feature">
+          <ion-icon name="checkmark-circle" class="feature-icon"></ion-icon>
+          <span>Unlimited Debugging Tokens</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark-circle" class="feature-icon"></ion-icon>
+          <span>Priority Support</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark-circle" class="feature-icon"></ion-icon>
+          <span>Advanced Career Analytics</span>
+        </div>
+      </div>
+
+      <div class="subscription-actions">
+        <button class="action-btn outline" (click)="manageSubscription()">
+          Manage Plan
+        </button>
+        <button class="action-btn primary" (click)="upgradePlan()">
+          Upgrade
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRIENDS & NETWORK -->
+  <div class="section">
+    <h2 class="section-title">Friends & Network</h2>
+    <div class="friends-section">
+      <div class="friends-header">
+        <h4>24 Friends</h4>
+        <button class="add-friend-btn" (click)="addFriend()">
+          <ion-icon name="add"></ion-icon>
+          Add Friend
+        </button>
+      </div>
+      
+      <div class="friends-grid">
+        <div class="friend-card" *ngFor="let friend of friends">
+          <div class="friend-avatar">
+            <div class="lottie-container x-small" [id]="'friend-' + friend.id + '-animation'"></div>
+          </div>
+          <div class="friend-info">
+            <h5>{{ friend.name }}</h5>
+            <p>{{ friend.level }}</p>
+          </div>
+          <div class="friend-status" [class]="friend.status"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTORY & ACTIVITY -->
+  <div class="section">
+    <h2 class="section-title">Recent Activity</h2>
+    <div class="activity-timeline">
+      <div class="activity-item">
+        <div class="activity-icon">
+          <div class="lottie-container x-small" id="activity1-animation"></div>
+        </div>
+        <div class="activity-content">
+          <h4>Completed JavaScript Course</h4>
+          <p>Advanced functions and closures</p>
+          <span class="activity-time">2 hours ago</span>
+        </div>
+      </div>
+
+      <div class="activity-item">
+        <div class="activity-icon">
+          <div class="lottie-container x-small" id="activity2-animation"></div>
+        </div>
+        <div class="activity-content">
+          <h4>Won Coding Challenge</h4>
+          <p>1st place in Algorithm Battle</p>
+          <span class="activity-time">1 day ago</span>
+        </div>
+      </div>
+
+      <div class="activity-item">
+        <div class="activity-icon">
+          <div class="lottie-container x-small" id="activity3-animation"></div>
+        </div>
+        <div class="activity-content">
+          <h4>Reached Level 15</h4>
+          <p>New rank: Code Master</p>
+          <span class="activity-time">2 days ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP SETTINGS -->
+  <div class="section">
+    <h2 class="section-title">App Settings</h2>
+    <div class="settings-list">
+      <div class="setting-item toggle-item">
+        <div class="setting-content">
+          <h4>Dark Mode</h4>
+          <p>Switch to dark theme</p>
+        </div>
+        <ion-toggle [(ngModel)]="darkMode" (ionChange)="toggleDarkMode()"></ion-toggle>
+      </div>
+
+      <div class="setting-item toggle-item">
+        <div class="setting-content">
+          <h4>Study Reminders</h4>
+          <p>Daily coding reminders</p>
+        </div>
+        <ion-toggle [(ngModel)]="studyReminders" (ionChange)="toggleReminders()"></ion-toggle>
+      </div>
+
+      <div class="setting-item" (click)="helpSupport()">
+        <div class="setting-icon">
+          <div class="lottie-container small" id="help-animation"></div>
+        </div>
+        <div class="setting-content">
+          <h4>Help & Support</h4>
+          <p>Get help and contact support</p>
+        </div>
+        <ion-icon name="chevron-forward" class="setting-arrow"></ion-icon>
+      </div>
+
+      <div class="setting-item" (click)="aboutApp()">
+        <div class="setting-icon">
+          <div class="lottie-container small" id="about-animation"></div>
+        </div>
+        <div class="setting-content">
+          <h4>About</h4>
+          <p>App version and information</p>
+        </div>
+        <ion-icon name="chevron-forward" class="setting-arrow"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGOUT BUTTON -->
+  <div class="logout-section">
+    <button class="logout-btn" (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>
+      Log Out
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,215 @@
+.explore-internships-content {
+  --background: #FDF6E3;
+}
+
+.primary-toolbar {
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+  --color: white !important;
+  
+  ion-button {
+    --color: white !important;
+    
+    ion-icon {
+      color: white !important;
+      font-size: 24px;
+    }
+  }
+  
+  ion-title {
+    --color: white !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}
+
+.search-section {
+  padding: 20px;
+  background: white;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  --background: rgba(255, 107, 129, 0.05);
+  --border-radius: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --placeholder-color: #999;
+  --color: #333;
+}
+
+.search-btn {
+  --border-radius: 12px;
+  --background: #FF6B81;
+  --color: white;
+  width: 50px;
+  height: 50px;
+}
+
+.filters-section {
+  background: white;
+  margin: 0 20px 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+  
+  h3 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 16px;
+    font-size: 1.2em;
+  }
+}
+
+.filter-options {
+  ion-segment {
+    --background: rgba(255, 107, 129, 0.1);
+  }
+  
+  ion-segment-button {
+    --color-checked: #FF6B81;
+    --indicator-color: #FF6B81;
+    --color: #666;
+    
+    ion-label {
+      font-weight: 600;
+      font-size: 12px;
+    }
+  }
+}
+
+.internships-list {
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.internship-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.internship-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(255, 107, 129, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .lottie-container {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.internship-info {
+  flex: 1;
+  
+  h3 {
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 4px 0;
+    font-size: 16px;
+  }
+  
+  p {
+    color: #666;
+    margin: 0 0 8px 0;
+    font-size: 14px;
+  }
+}
+
+.internship-meta {
+  display: flex;
+  gap: 12px;
+  
+  span {
+    font-size: 12px;
+    font-weight: 600;
+    
+    &.salary {
+      color: #58CC02;
+    }
+    
+    &.duration {
+      color: #666;
+    }
+  }
+}
+
+.internship-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  ion-icon {
+    color: #FF6B81;
+    font-size: 16px;
+  }
+  
+  span {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.internship-actions {
+  display: flex;
+  gap: 12px;
+  
+  .apply-btn {
+    flex: 2;
+    --border-radius: 12px;
+    --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+    --color: white;
+    --box-shadow: 0 4px 0 #E05570, 0 6px 20px rgba(255, 107, 129, 0.3);
+    height: 44px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .save-btn {
+    flex: 1;
+    --border-radius: 12px;
+    --color: #FF6B81;
+    --border-color: #FF6B81;
+    --border-width: 2px;
+    height: 44px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+}

@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true" class="notification-content">
+  <div class="settings-section">
+    <h3>Push Notifications</h3>
+    
+    <ion-list>
+      <ion-item>
+        <ion-toggle [(ngModel)]="settings.pushEnabled" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Enable Push Notifications</h4>
+          <p>Receive notifications on your device</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="settings-section" [class.disabled]="!settings.pushEnabled">
+    <h3>Notification Types</h3>
+    
+    <ion-list>
+      <ion-item>
+        <ion-toggle [(ngModel)]="settings.studyReminders" [disabled]="!settings.pushEnabled" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Study Reminders</h4>
+          <p>Daily coding practice reminders</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle [(ngModel)]="settings.achievements" [disabled]="!settings.pushEnabled" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Achievements</h4>
+          <p>When you unlock new badges</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle [(ngModel)]="settings.friendActivity" [disabled]="!settings.pushEnabled" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Friend Activity</h4>
+          <p>When friends complete challenges</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle [(ngModel)]="settings.challengeUpdates" [disabled]="!settings.pushEnabled" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Challenge Updates</h4>
+          <p>New coding challenges available</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle [(ngModel)]="settings.newsletter" [disabled]="!settings.pushEnabled" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Newsletter</h4>
+          <p>Weekly coding tips and updates</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="settings-section">
+    <h3>Email Notifications</h3>
+    
+    <ion-list>
+      <ion-item>
+        <ion-toggle [(ngModel)]="settings.emailSummary" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Weekly Summary</h4>
+          <p>Your weekly progress report</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle [(ngModel)]="settings.productUpdates" slot="start"></ion-toggle>
+        <ion-label>
+          <h4>Product Updates</h4>
+          <p>New features and improvements</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

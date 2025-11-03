@@ -1,0 +1,113 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Subscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="subscription-content">
+  <!-- Current Plan -->
+  <div class="current-plan-section">
+    <div class="plan-card pro">
+      <div class="plan-header">
+        <div class="plan-icon">
+          <div class="lottie-container" id="current-plan-animation"></div>
+        </div>
+        <div class="plan-info">
+          <h3>Pro Plan</h3>
+          <p class="plan-status active">Active</p>
+          <p class="plan-renewal">Renews Dec 30, 2024</p>
+        </div>
+      </div>
+      
+      <div class="plan-price">
+        <span class="price">$9.99</span>
+        <span class="period">/month</span>
+      </div>
+
+      <div class="plan-features">
+        <div class="feature">
+          <ion-icon name="checkmark-circle" class="feature-icon"></ion-icon>
+          <span>Unlimited Debugging Tokens</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark-circle" class="feature-icon"></ion-icon>
+          <span>Priority Support</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark-circle" class="feature-icon"></ion-icon>
+          <span>Advanced Career Analytics</span>
+        </div>
+        <div class="feature">
+          <ion-icon name="checkmark-circle" class="feature-icon"></ion-icon>
+          <span>Exclusive Challenges</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Billing Information -->
+  <div class="billing-section">
+    <h3>Billing Information</h3>
+    
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          <h4>Payment Method</h4>
+          <p>•••• 4242 (Visa)</p>
+        </ion-label>
+        <ion-button fill="clear" (click)="updatePayment()">Change</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h4>Billing Cycle</h4>
+          <p>Monthly</p>
+        </ion-label>
+        <ion-button fill="clear" (click)="changeBillingCycle()">Change</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h4>Next Billing Date</h4>
+          <p>December 30, 2024</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- Subscription Actions -->
+  <div class="actions-section">
+    <ion-button expand="block" fill="outline" (click)="upgradePlan()">
+      Upgrade Plan
+    </ion-button>
+    
+    <ion-button expand="block" fill="outline" color="danger" (click)="cancelSubscription()">
+      Cancel Subscription
+    </ion-button>
+  </div>
+
+  <!-- Usage Statistics -->
+  <div class="usage-section">
+    <h3>Usage This Month</h3>
+    
+    <div class="usage-stats">
+      <div class="usage-item">
+        <div class="usage-value">42</div>
+        <div class="usage-label">Debugging Sessions</div>
+      </div>
+      <div class="usage-item">
+        <div class="usage-value">18</div>
+        <div class="usage-label">Code Explanations</div>
+      </div>
+      <div class="usage-item">
+        <div class="usage-value">7</div>
+        <div class="usage-label">Career Sessions</div>
+      </div>
+    </div>
+  </div>
+</ion-content>

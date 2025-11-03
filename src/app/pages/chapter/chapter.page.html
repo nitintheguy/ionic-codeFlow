@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ currentChapter?.title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleTranscript()">
+        <ion-icon slot="icon-only" [name]="showTranscript ? 'document-text' : 'document'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="chapter-player-content">
+  <!-- Video/Lottie Player Section -->
+  <div class="player-section">
+    <div class="lottie-player-container" id="chapter-animation"></div>
+    
+    <div class="player-controls">
+      <div class="progress-section">
+        <div class="progress-info">
+          <span class="current-time">{{ formatTime(currentTime) }}</span>
+          <span class="total-time">{{ formatTime(totalTime) }}</span>
+        </div>
+        <div class="progress-bar" (click)="seek($event)">
+          <div class="progress-fill" [style.width.%]="(currentTime / totalTime) * 100"></div>
+        </div>
+      </div>
+      
+      <div class="control-buttons">
+        <ion-button fill="clear" (click)="skipBackward()">
+          <ion-icon name="play-back" slot="icon-only"></ion-icon>
+        </ion-button>
+        
+        <ion-button class="play-pause-btn" (click)="togglePlay()">
+          <ion-icon [name]="isPlaying ? 'pause' : 'play'" slot="icon-only"></ion-icon>
+        </ion-button>
+        
+        <ion-button fill="clear" (click)="skipForward()">
+          <ion-icon name="play-forward" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transcript Section -->
+  <div class="transcript-section" *ngIf="showTranscript">
+    <div class="section-header">
+      <h3>Transcript</h3>
+    </div>
+    <div class="transcript-content">
+      <p *ngFor="let line of transcript" 
+         [class.active]="line.time >= currentTime && line.time < currentTime + 5">
+        {{ line.text }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Concept Section -->
+  <div class="concept-section">
+    <div class="section-header">
+      <h3>What You'll Learn</h3>
+    </div>
+    
+    <div class="concept-content">
+      <h4 class="concept-title">{{ currentChapter?.title }}</h4>
+      
+      <div class="learning-objectives">
+        <h5>Learning Objectives</h5>
+        <ul>
+          <li *ngFor="let objective of currentChapter?.objectives">
+            {{ objective }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="chapter-content">
+        <div *ngFor="let section of currentChapter?.content">
+          <h5>{{ section.heading }}</h5>
+          <p>{{ section.text }}</p>
+          <div class="code-example" *ngIf="section.code">
+            <pre><code>{{ section.code }}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="key-points">
+        <h5>Key Points</h5>
+        <div class="points-grid">
+          <div class="point-card" *ngFor="let point of currentChapter?.keyPoints">
+            <ion-icon name="bulb" class="point-icon"></ion-icon>
+            <span>{{ point }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-section">
+    <ion-button expand="block" fill="outline" (click)="previousChapter()" [disabled]="!hasPreviousChapter()">
+      <ion-icon name="chevron-back" slot="start"></ion-icon>
+      Previous
+    </ion-button>
+    <ion-button expand="block" (click)="nextChapter()" [disabled]="!hasNextChapter()">
+      Next
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,94 @@
+.lesson-modal-content {
+  --background: #FDF6E3;
+}
+
+// Consistent Pink Headers for both modals
+ion-toolbar {
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  --color: white;
+  
+  ion-button {
+    --color: white;
+  }
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.animation-section {
+  margin-bottom: 24px;
+  
+  .lottie-animation {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    background: rgba(255, 107, 129, 0.1);
+    box-shadow: 0 8px 24px rgba(255, 107, 129, 0.2);
+  }
+}
+
+.text-section {
+  margin-bottom: 32px;
+  max-width: 400px;
+  
+  .main-message {
+    font-size: 28px;
+    font-weight: 800;
+    color: #333;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+    color: #666;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+  }
+  
+  .lesson-title {
+    font-size: 18px;
+    color: #FF6B81;
+    font-weight: 600;
+    font-style: italic;
+    margin: 0;
+    padding: 12px 20px;
+    background: rgba(255, 107, 129, 0.1);
+    border-radius: 12px;
+    border: 2px dashed rgba(255, 107, 129, 0.3);
+  }
+}
+
+.action-section {
+  width: 100%;
+  max-width: 300px;
+  
+  .confirm-btn {
+    --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+    --background-activated: #E05570;
+    --background-hover: #FF8E9E;
+    --border-radius: 16px;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --box-shadow: 0 6px 0 #E05570, 0 8px 20px rgba(255, 107, 129, 0.3);
+    
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

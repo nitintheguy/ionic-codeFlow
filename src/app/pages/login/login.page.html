@@ -1,0 +1,63 @@
+<ion-content [fullscreen]="true" class="learning-content login-page">
+
+ 
+
+  <!-- HEADER -->
+  <div class="streak-header">
+    <div class="streak-content">
+      <div class="streak-info">
+        <h2 class="streak-title">Current Streak</h2>
+        <p class="streak-count">{{ currentStreak }} days</p>
+        <p class="streak-subtitle">Keep going!</p>
+      </div>
+      <div class="flame-container">
+        <div id="flame-animation" class="lottie-animation"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="streak-spacer" aria-hidden="true"></div>
+
+  <!-- MAIN PROGRESS PATH -->
+  <div class="path-container">
+  
+
+    <!-- NODES -->
+    <div class="nodes-wrapper">
+      <div 
+        *ngFor="let node of pathNodes; let i = index" 
+        class="node-container"
+        [style.top.px]="i * 190"
+      >
+        <div class="node-content" (click)="onNodeClick(node, $event)">
+          <div class="lottie-container">
+            <div 
+              class="node-animation lottie-node-animation" 
+              [id]="'node-animation-' + node.id"
+              [attr.data-node-id]="node.id">
+            </div>
+            <ion-icon 
+              *ngIf="!nodeAnimations.has(node.id)" 
+              [name]="getNodeIcon(node)" 
+              class="fallback-icon">
+            </ion-icon>
+          </div>
+        </div>
+
+        <h3 class="node-title">{{ node.title }}</h3>
+        <p class="node-subtitle" *ngIf="node.day">DAY {{ node.day }}</p>
+        <p class="node-subtitle" *ngIf="node.type === 'checkpoint'">CHECKPOINT</p>
+        <p class="node-subtitle" *ngIf="node.type === 'locked'">LOCKED</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress-indicator">
+    {{ getCompletedCount() }}/{{ pathNodes.length }} completed
+  </div>
+
+
+  
+
+</ion-content>
+

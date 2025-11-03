@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Find Hackathons</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="find-hackathons-content">
+  <!-- Search Section -->
+  <div class="search-section">
+    <div class="search-bar">
+      <ion-input placeholder="Search hackathons..." class="search-input"></ion-input>
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-section">
+    <h3>Filters</h3>
+    <div class="filter-options">
+      <ion-segment [(ngModel)]="selectedFilter" (ionChange)="applyFilters()">
+        <ion-segment-button value="all">
+          <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="upcoming">
+          <ion-label>Upcoming</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="ongoing">
+          <ion-label>Ongoing</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="featured">
+          <ion-label>Featured</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </div>
+
+  <!-- Hackathons List -->
+  <div class="hackathons-list">
+    <div class="hackathon-card" *ngFor="let hackathon of filteredHackathons">
+      <div class="hackathon-header">
+        <div class="company-logo">
+          <div class="lottie-container" [id]="'hackathon-' + hackathon.id + '-animation'"></div>
+        </div>
+        <div class="hackathon-info">
+          <h3>{{ hackathon.title }}</h3>
+          <p>By {{ hackathon.host }}</p>
+          <div class="hackathon-meta">
+            <span class="participants">{{ hackathon.participants }} participants</span>
+            <span class="prize">${{ hackathon.prize.toLocaleString() }} Prize</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hackathon-details">
+        <div class="detail-item">
+          <ion-icon name="calendar"></ion-icon>
+          <span>Starts: {{ hackathon.startDate }}</span>
+        </div>
+        <div class="detail-item">
+          <ion-icon name="time"></ion-icon>
+          <span>{{ hackathon.duration }}</span>
+        </div>
+        <div class="detail-item">
+          <ion-icon name="location"></ion-icon>
+          <span>{{ hackathon.location }}</span>
+        </div>
+      </div>
+
+      <div class="hackathon-actions">
+        <ion-button expand="block" class="register-btn" (click)="registerHackathon(hackathon.id)">
+          <ion-icon name="rocket" slot="start"></ion-icon>
+          {{ hackathon.registered ? 'Registered' : 'Register Now' }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

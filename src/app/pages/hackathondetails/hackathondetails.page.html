@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Hackathon Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="hackathon-details-content">
+  <div class="hackathon-hero">
+    <div class="company-logo-large">
+      <div class="lottie-container" id="hackathon-details-animation"></div>
+    </div>
+    <div class="hackathon-info">
+      <h1>{{ hackathon?.title }}</h1>
+      <p>By {{ hackathon?.host }}</p>
+      <div class="prize-badge">
+        <ion-icon name="trophy"></ion-icon>
+        <span>${{ hackathon?.prize?.toLocaleString() }} Prize Pool</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h3>About This Hackathon</h3>
+    <p>{{ hackathon?.description }}</p>
+  </div>
+
+  <div class="details-section">
+    <h3>Event Details</h3>
+    <div class="event-details">
+      <div class="detail-item">
+        <ion-icon name="calendar"></ion-icon>
+        <div class="detail-content">
+          <strong>Start Date</strong>
+          <span>{{ hackathon?.startDate }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <ion-icon name="time"></ion-icon>
+        <div class="detail-content">
+          <strong>Duration</strong>
+          <span>{{ hackathon?.duration }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <ion-icon name="location"></ion-icon>
+        <div class="detail-content">
+          <strong>Location</strong>
+          <span>{{ hackathon?.location }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <ion-icon name="people"></ion-icon>
+        <div class="detail-content">
+          <strong>Participants</strong>
+          <span>{{ hackathon?.participants?.toLocaleString() }} developers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h3>Required Skills</h3>
+    <div class="skills-list">
+      <span class="skill-tag" *ngFor="let skill of hackathon?.skills">{{ skill }}</span>
+    </div>
+  </div>
+
+  <div class="action-section" *ngIf="!viewOnly">
+    <ion-button expand="block" class="register-btn" (click)="toggleRegistration()" [disabled]="processing">
+      <ion-icon [name]="isRegistered ? 'close-circle' : 'rocket'" slot="start"></ion-icon>
+      {{ isRegistered ? 'Cancel Registration' : 'Register Now' }}
+    </ion-button>
+    
+    <div class="registration-info" *ngIf="isRegistered">
+      <ion-icon name="checkmark-circle" class="success"></ion-icon>
+      <span>You are registered for this hackathon</span>
+    </div>
+  </div>
+
+  <div class="warning-section" *ngIf="showCancelWarning">
+    <div class="warning-content">
+      <ion-icon name="warning" class="warning-icon"></ion-icon>
+      <h4>Cancel Registration?</h4>
+      <p>Are you sure you want to cancel your registration for {{ hackathon?.title }}?</p>
+      <div class="warning-actions">
+        <ion-button fill="outline" (click)="cancelCancellation()">Keep Registration</ion-button>
+        <ion-button color="danger" (click)="confirmCancellation()">Yes, Cancel</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

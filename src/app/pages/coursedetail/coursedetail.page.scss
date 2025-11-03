@@ -1,0 +1,228 @@
+.course-details-content {
+  --background: #FDF6E3;
+}
+
+/* Force toolbar styling with higher specificity */
+ion-toolbar.primary-toolbar {
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+  --color: white !important;
+  --border-color: transparent !important;
+  
+  ion-title {
+    color: white !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  
+  ion-button {
+    --color: white !important;
+    --background: transparent;
+    --background-hover: rgba(255, 255, 255, 0.1);
+    --background-activated: rgba(255, 255, 255, 0.2);
+    
+    ion-icon {
+      color: white !important;
+      font-size: 24px;
+    }
+  }
+}
+
+/* Specific targeting for the close button */
+ion-toolbar.primary-toolbar ion-buttons[slot="end"] ion-button {
+  --color: white !important;
+  margin: 0;
+  
+  ion-icon {
+    color: white !important;
+    font-size: 24px;
+  }
+}
+
+.course-hero {
+  background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 8px 0 rgba(200, 60, 80, 0.5), 0 12px 24px rgba(0, 0, 0, 0.12);
+  margin-top: -1px; /* Ensure it connects with toolbar */
+}
+
+.course-image-large {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.lottie-container-large {
+  width: 80px;
+  height: 80px;
+}
+
+.course-hero-info {
+  flex: 1;
+}
+
+.course-title-large {
+  margin: 0 0 8px 0;
+  font-size: 1.4em;
+  font-weight: 800;
+  color: white;
+}
+
+.course-instructor-large {
+  margin: 0 0 12px 0;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.rating-large {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.stars {
+  color: #FFD93D;
+}
+
+.details-section {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 107, 129, 0.2);
+  background: white;
+  margin: 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.course-full-description {
+  line-height: 1.6;
+  color: #666;
+  font-size: 14px;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.feature-icon {
+  color: #58CC02;
+  font-size: 1.2em;
+  flex-shrink: 0;
+}
+
+.curriculum-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.curriculum-item {
+  padding: 16px;
+  background: rgba(255, 107, 129, 0.05);
+  border-radius: 16px;
+  border: 2px solid rgba(255, 107, 129, 0.1);
+  transition: all 0.3s ease;
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.module-number {
+  font-weight: 700;
+  color: #FF6B81;
+  font-size: 14px;
+}
+
+.module-duration {
+  font-size: 0.9em;
+  color: #666;
+  font-weight: 600;
+}
+
+.module-title {
+  margin: 0 0 4px 0;
+  font-weight: 700;
+  color: #333;
+  font-size: 16px;
+}
+
+.module-lessons {
+  margin: 0;
+  font-size: 0.9em;
+  color: #666;
+  font-weight: 500;
+}
+
+.action-section {
+  padding: 20px;
+  background: white;
+  margin: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.pricing {
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 2em;
+  font-weight: 800;
+  color: #FF6B81;
+  display: block;
+}
+
+.price-note {
+  font-size: 0.9em;
+  color: #666;
+  font-weight: 500;
+}
+
+.enroll-btn-large {
+  --border-radius: 16px;
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  --color: white;
+  --box-shadow: 0 6px 0 #E05570, 0 8px 20px rgba(255, 107, 129, 0.3);
+  height: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}

@@ -25,6 +25,9 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+
+
+
 /**
  * Ionic Dark Mode
  * -----------------------------------------------------
@@ -35,3 +38,155 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+
+.lesson-completed-modal, .lesson-locked-modal {
+  --background: transparent;
+  
+  .modal-wrapper {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 16px;
+    overflow: hidden;
+    
+    ion-header {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    ion-content {
+      --background: #FDF6E3;
+    }
+  }
+}
+
+// Specific modal styles
+.lesson-completed-modal {
+  .modal-wrapper {
+    border: 2px solid rgba(88, 204, 2, 0.3);
+  }
+}
+
+.lesson-locked-modal {
+  .modal-wrapper {
+    border: 2px solid rgba(255, 107, 129, 0.3);
+  }
+}
+
+.themed-modal {
+  ion-toolbar {
+    --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+    --color: white !important;
+    
+    ion-button {
+      --color: white !important;
+    }
+    
+    ion-title {
+      --color: white !important;
+    }
+  }
+}
+
+
+/* Global fix for modal headers */
+ion-modal {
+  ion-toolbar {
+    --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+    --color: white !important;
+    
+    ion-button {
+      --color: white !important;
+      
+      ion-icon {
+        color: white !important;
+      }
+    }
+    
+    ion-title {
+      color: white !important;
+    }
+  }
+}
+
+/* Enroll modal styles */
+.enroll-modal, .payment-modal {
+  ion-toolbar {
+    --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+    --color: white !important;
+    
+    ion-button {
+      --color: white !important;
+      
+      ion-icon {
+        color: white !important;
+      }
+    }
+    
+    ion-title {
+      color: white !important;
+    }
+  }
+}
+
+
+.token-confirm-modal {
+  --background: transparent !important;
+  --box-shadow: none !important;
+  --backdrop-opacity: 0 !important;
+  --border: none !important;
+
+  ion-modal::part(content) {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .modal-wrapper,
+  .ion-overlay-wrapper {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+.token-purchase-modal {
+  --background: transparent !important;
+  --box-shadow: none !important;
+  --border: none !important;
+  --backdrop-opacity: 0 !important;
+
+  ion-modal::part(content) {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  ion-modal::part(backdrop) {
+    background: transparent !important;
+  }
+
+  .modal-wrapper,
+  .ion-overlay-wrapper {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+
+// Add Friend Modal Styling
+.add-friend-modal-class {
+  --width: 100%;
+  --height: 100%;
+  --border-radius: 0;
+  --box-shadow: none;
+  --background: rgba(0, 0, 0, 0.5);
+}
+
+// Remove the default modal backdrop and border
+.add-friend-modal-class .modal-wrapper {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+// Remove any default Ionic modal styling
+.add-friend-modal-class ion-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}

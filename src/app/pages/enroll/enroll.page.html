@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Enroll in Course</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="enroll-content">
+  <!-- Course Summary -->
+  <div class="course-summary">
+    <div class="course-image">
+      <div class="lottie-container" id="enroll-animation"></div>
+    </div>
+    <div class="course-details">
+      <h2 class="course-title">{{ course?.title }}</h2>
+      <p class="course-instructor">By {{ course?.instructor }}</p>
+      <div class="course-meta">
+        <span class="duration">
+          <ion-icon name="time"></ion-icon>
+          {{ course?.duration }}
+        </span>
+        <span class="modules">
+          <ion-icon name="layers"></ion-icon>
+          {{ course?.modules }} modules
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing Section -->
+  <div class="pricing-section">
+    <div class="price-display">
+      <div class="original-price" *ngIf="course?.originalPrice">${{ course?.originalPrice }}</div>
+      <div class="current-price">${{ course?.price }}</div>
+      <div class="price-note">one-time payment</div>
+    </div>
+
+    <div class="savings-badge" *ngIf="course?.originalPrice">
+      Save ${{ calculateSavings() }}
+    </div>
+  </div>
+
+  <!-- Features List -->
+  <div class="features-section">
+    <h3 class="section-title">What's Included</h3>
+    <div class="features-grid">
+      <div class="feature-item" *ngFor="let feature of course?.features">
+        <ion-icon name="checkmark-circle" class="feature-icon"></ion-icon>
+        <span>{{ feature }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Methods -->
+  <div class="payment-section">
+    <h3 class="section-title">Choose Payment Method</h3>
+    
+    <div class="payment-methods">
+      <div class="payment-method" 
+           *ngFor="let method of paymentMethods"
+           [class.selected]="selectedPaymentMethod === method.id"
+           (click)="selectPaymentMethod(method.id)">
+        <div class="method-icon">
+          <ion-icon [name]="method.icon"></ion-icon>
+        </div>
+        <div class="method-info">
+          <div class="method-name">{{ method.name }}</div>
+          <div class="method-description">{{ method.description }}</div>
+        </div>
+        <div class="method-check">
+          <ion-icon name="checkmark-circle" *ngIf="selectedPaymentMethod === method.id"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-section">
+    <ion-button expand="block" class="enroll-btn" (click)="proceedToPayment()">
+      <ion-icon name="lock-closed" slot="start"></ion-icon>
+      Proceed to Payment - ${{ course?.price }}
+    </ion-button>
+    
+    <div class="security-note">
+      <ion-icon name="shield-checkmark"></ion-icon>
+      <span>Secure payment · 30-day money-back guarantee</span>
+    </div>
+  </div>
+</ion-content>

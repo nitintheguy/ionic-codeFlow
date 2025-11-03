@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="payment-content">
+  <!-- Order Summary -->
+  <div class="order-summary">
+    <h3 class="section-title">Order Summary</h3>
+    
+    <div class="course-item">
+      <div class="course-info">
+        <h4 class="course-name">{{ course?.title }}</h4>
+        <p class="course-instructor">By {{ course?.instructor }}</p>
+      </div>
+      <div class="course-price">${{ course?.price }}</div>
+    </div>
+    
+    <div class="price-breakdown">
+      <div class="price-row">
+        <span>Subtotal</span>
+        <span>${{ course?.price }}</span>
+      </div>
+      <div class="price-row">
+        <span>Tax</span>
+        <span>${{ calculateTax() }}</span>
+      </div>
+      <div class="price-row total">
+        <span>Total</span>
+        <span>${{ calculateTotal() }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Method -->
+  <div class="payment-method-section">
+    <h3 class="section-title">Payment Method</h3>
+    <div class="selected-method">
+      <div class="method-icon">
+        <ion-icon [name]="getPaymentMethodIcon()"></ion-icon>
+      </div>
+      <div class="method-info">
+        <div class="method-name">{{ getPaymentMethodName() }}</div>
+        <div class="method-change" (click)="changePaymentMethod()">Change</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card Details Form -->
+  <div class="card-form" *ngIf="paymentMethod === 'card'">
+    <h3 class="section-title">Card Details</h3>
+    
+    <div class="form-group">
+      <label class="form-label">Card Number</label>
+      <div class="input-with-icon">
+        <ion-icon name="card" class="input-icon"></ion-icon>
+        <input type="text" 
+               class="form-input" 
+               placeholder="1234 5678 9012 3456"
+               [(ngModel)]="cardDetails.number"
+               maxlength="19">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Expiry Date</label>
+        <input type="text" 
+               class="form-input" 
+               placeholder="MM/YY"
+               [(ngModel)]="cardDetails.expiry"
+               maxlength="5">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">CVV</label>
+        <div class="input-with-icon">
+          <input type="password" 
+                 class="form-input" 
+                 placeholder="123"
+                 [(ngModel)]="cardDetails.cvv"
+                 maxlength="3">
+          <ion-icon name="lock-closed" class="input-icon"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Cardholder Name</label>
+      <input type="text" 
+             class="form-input" 
+             placeholder="John Doe"
+             [(ngModel)]="cardDetails.name">
+    </div>
+  </div>
+
+  <!-- PayPal Section -->
+  <div class="paypal-section" *ngIf="paymentMethod === 'paypal'">
+    <div class="paypal-info">
+      <ion-icon name="logo-paypal" class="paypal-icon"></ion-icon>
+      <p>You will be redirected to PayPal to complete your payment securely.</p>
+    </div>
+  </div>
+
+  <!-- Mobile Payment Section -->
+  <div class="mobile-payment-section" *ngIf="paymentMethod === 'googlepay' || paymentMethod === 'applepay'">
+    <div class="mobile-payment-info">
+      <ion-icon [name]="paymentMethod === 'googlepay' ? 'logo-google' : 'logo-apple'" 
+                class="mobile-payment-icon"></ion-icon>
+      <p>Tap the button below to pay with {{ paymentMethod === 'googlepay' ? 'Google Pay' : 'Apple Pay' }}</p>
+    </div>
+  </div>
+
+  <!-- Security Features -->
+  <div class="security-features">
+    <div class="security-item">
+      <ion-icon name="shield-checkmark" class="security-icon"></ion-icon>
+      <span>Secure SSL Encryption</span>
+    </div>
+    <div class="security-item">
+      <ion-icon name="lock-closed" class="security-icon"></ion-icon>
+      <span>Your payment details are safe</span>
+    </div>
+    <div class="security-item">
+      <ion-icon name="refresh-circle" class="security-icon"></ion-icon>
+      <span>30-day money-back guarantee</span>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-section">
+    <ion-button expand="block" 
+                class="pay-now-btn" 
+                (click)="processPayment()"
+                [disabled]="processing">
+      <ion-icon name="lock-closed" slot="start" *ngIf="!processing"></ion-icon>
+      <ion-spinner name="crescent" slot="start" *ngIf="processing"></ion-spinner>
+      {{ processing ? 'Processing...' : 'Pay $' + calculateTotal() }}
+    </ion-button>
+    
+    <div class="terms-agreement">
+      <p>By completing your purchase, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</ion-content>

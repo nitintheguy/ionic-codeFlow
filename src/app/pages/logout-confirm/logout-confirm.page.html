@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true" class="logout-content">
+  <div class="logout-container">
+    <div class="logout-icon">
+      <div class="lottie-container" id="logout-animation"></div>
+    </div>
+
+    <div class="logout-message">
+      <h2>Log Out</h2>
+      <p>Are you sure you want to log out? You'll need to sign in again to access your account.</p>
+    </div>
+
+    <div class="logout-actions">
+      <ion-button expand="block" fill="outline" (click)="goBack()">
+        Cancel
+      </ion-button>
+      <ion-button expand="block" fill="solid" (click)="confirmLogout()">
+        Log Out
+      </ion-button>
+    </div>
+
+    <div class="logout-info">
+      <h4>Before you go...</h4>
+      <div class="info-item">
+        <ion-icon name="save"></ion-icon>
+        <span>Your progress will be saved automatically</span>
+      </div>
+      <div class="info-item">
+        <ion-icon name="notifications"></ion-icon>
+        <span>You'll stop receiving study reminders</span>
+      </div>
+      <div class="info-item">
+        <ion-icon name="trophy"></ion-icon>
+        <span>Your streak will be paused until you return</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

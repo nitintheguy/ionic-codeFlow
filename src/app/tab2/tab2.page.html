@@ -1,17 +1,289 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="learning-content">
+  <!-- HEADER -->
+  <div class="learning-header">
+    <div class="header-content">
+      <h1 class="header-title">Learning Hub</h1>
+      <p class="header-subtitle">Expand your knowledge with courses & certificates</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Enrolled</div>
+      </div>
+      <div class="stat"> 
+        <div class="stat-number">5</div>
+        <div class="stat-label">Available</div>
+      </div>
+    </div>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-scroll">
+      <button class="filter-btn active">All Courses</button>
+      <button class="filter-btn">Web Dev</button>
+      <button class="filter-btn">Data Science</button>
+      <button class="filter-btn">Mobile</button>
+      <button class="filter-btn">UI/UX</button>
+      <button class="filter-btn">Certificates</button>
+    </div>
+  </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <!-- COURSE CARDS -->
+  <div class="courses-container">
+    <!-- Featured Course -->
+    <div class="course-card featured">
+      <div class="featured-badge">Featured</div>
+      <div class="card-header">
+        <div class="course-image">
+          <div class="lottie-container" id="fullstack-animation"></div>
+        </div>
+        <div class="course-info">
+          <h3 class="course-title">Full Stack Web Development</h3>
+          <p class="course-instructor">By Tech Academy</p>
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-text">4.9 (2.4k reviews)</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <p class="course-description">
+          Master HTML, CSS, JavaScript, React, Node.js and build real-world projects. 
+          Perfect for beginners to advanced developers.
+        </p>
+        
+        <div class="course-details">
+          <div class="detail-item">
+            <ion-icon name="time"></ion-icon>
+            <span>8 weeks</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="layers"></ion-icon>
+            <span>12 modules</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="school"></ion-icon>
+            <span>Certificate</span>
+          </div>
+        </div>
+
+        <div class="progress-section" *ngIf="enrolledCourses['fullstack']">
+          <div class="progress-info">
+            <span>Progress: {{getCourseProgress('fullstack')}}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="getCourseProgress('fullstack')"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button 
+          class="action-btn primary" 
+          *ngIf="!enrolledCourses['fullstack']"
+          (click)="enrollCourse('fullstack')">
+          <ion-icon name="add-circle"></ion-icon>
+          Enroll Now - $99
+        </button>
+        <button 
+          class="action-btn secondary" 
+          *ngIf="enrolledCourses['fullstack']"
+          (click)="continueCourse('fullstack')">
+          <ion-icon name="play-circle"></ion-icon>
+          Continue Learning
+        </button>
+        <button class="action-btn outline" (click)="showCourseDetails('fullstack')">
+          <ion-icon name="information-circle"></ion-icon>
+          Details
+        </button>
+      </div>
+    </div>
+
+    <!-- JavaScript Course -->
+    <div class="course-card">
+      <div class="card-header">
+        <div class="course-image">
+          <div class="lottie-container" id="javascript-animation"></div>
+        </div>
+        <div class="course-info">
+          <h3 class="course-title">Advanced JavaScript</h3>
+          <p class="course-instructor">By JS Mastery</p>
+          <div class="rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-text">4.7 (1.8k reviews)</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <p class="course-description">
+          Deep dive into modern JavaScript, ES6+, async programming, and advanced patterns.
+        </p>
+        
+        <div class="course-details">
+          <div class="detail-item">
+            <ion-icon name="time"></ion-icon>
+            <span>6 weeks</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="layers"></ion-icon>
+            <span>8 modules</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="school"></ion-icon>
+            <span>Certificate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="action-btn primary" (click)="enrollCourse('javascript')">
+          <ion-icon name="add-circle"></ion-icon>
+          Enroll Now - $79
+        </button>
+        <button class="action-btn outline" (click)="showCourseDetails('javascript')">
+          <ion-icon name="information-circle"></ion-icon>
+          Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Data Science Course -->
+    <div class="course-card">
+      <div class="card-header">
+        <div class="course-image">
+          <div class="lottie-container" id="datascience-animation"></div>
+        </div>
+        <div class="course-info">
+          <h3 class="course-title">Data Science Fundamentals</h3>
+          <p class="course-instructor">By Data Pro</p>
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-text">4.8 (1.2k reviews)</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <p class="course-description">
+          Learn Python, pandas, matplotlib and machine learning basics for data analysis.
+        </p>
+        
+        <div class="course-details">
+          <div class="detail-item">
+            <ion-icon name="time"></ion-icon>
+            <span>10 weeks</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="layers"></ion-icon>
+            <span>15 modules</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="school"></ion-icon>
+            <span>Certificate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="action-btn primary" (click)="enrollCourse('datascience')">
+          <ion-icon name="add-circle"></ion-icon>
+          Enroll Now - $129
+        </button>
+        <button class="action-btn outline" (click)="showCourseDetails('datascience')">
+          <ion-icon name="information-circle"></ion-icon>
+          Details
+        </button>
+      </div>
+    </div>
+
+    <!-- UI/UX Course -->
+    <div class="course-card">
+      <div class="card-header">
+        <div class="course-image">
+          <div class="lottie-container" id="uiux-animation"></div>
+        </div>
+        <div class="course-info">
+          <h3 class="course-title">UI/UX Design Mastery</h3>
+          <p class="course-instructor">By Design Lab</p>
+          <div class="rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-text">4.6 (956 reviews)</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <p class="course-description">
+          Learn design principles, Figma, prototyping and create stunning user interfaces.
+        </p>
+        
+        <div class="course-details">
+          <div class="detail-item">
+            <ion-icon name="time"></ion-icon>
+            <span>7 weeks</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="layers"></ion-icon>
+            <span>10 modules</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="school"></ion-icon>
+            <span>Certificate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="action-btn primary" (click)="enrollCourse('uiux')">
+          <ion-icon name="add-circle"></ion-icon>
+          Enroll Now - $89
+        </button>
+        <button class="action-btn outline" (click)="showCourseDetails('uiux')">
+          <ion-icon name="information-circle"></ion-icon>
+          Details
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ SECTION -->
+  <div class="section-header">
+    <h2>Quick Quizzes</h2>
+    <p>Test your knowledge with daily challenges</p>
+  </div>
+
+  <div class="quizzes-container">
+    <div class="quiz-card">
+      <div class="quiz-header">
+        <div class="quiz-badge">JavaScript</div>
+        <div class="quiz-difficulty easy">Easy</div>
+      </div>
+      <h3 class="quiz-title">Variables & Data Types</h3>
+      <p class="quiz-description">15 questions • 10 minutes</p>
+      <div class="quiz-actions">
+        <button class="quiz-btn">
+          <ion-icon name="play-circle"></ion-icon>
+          Start Quiz
+        </button>
+      </div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="quiz-header">
+        <div class="quiz-badge">CSS</div>
+        <div class="quiz-difficulty medium">Medium</div>
+      </div>
+      <h3 class="quiz-title">Flexbox & Grid</h3>
+      <p class="quiz-description">20 questions • 15 minutes</p>
+      <div class="quiz-actions">
+        <button class="quiz-btn">
+          <ion-icon name="play-circle"></ion-icon>
+          Start Quiz
+        </button>
+      </div>
+    </div>
+  </div>
 </ion-content>

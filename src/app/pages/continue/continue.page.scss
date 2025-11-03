@@ -1,0 +1,359 @@
+.continue-content {
+  --background: #FDF6E3;
+}
+
+.primary-toolbar {
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+  --color: white !important;
+  
+  ion-button {
+    --color: white !important;
+    
+    ion-icon {
+      color: white !important;
+      font-size: 24px;
+    }
+  }
+  
+  ion-title {
+    --color: white !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}
+
+.battle-overview {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.battle-header {
+  text-align: center;
+  margin-bottom: 20px;
+  
+  h2 {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    color: #FF6B81;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.players-comparison {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  
+  &.you {
+    justify-content: flex-start;
+  }
+  
+  &.opponent {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+  }
+  
+  .player-avatar {
+    width: 50px;
+    height: 50px;
+    
+    .lottie-container {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .player-info {
+    text-align: center;
+    
+    h4 {
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 2px;
+      font-size: 14px;
+    }
+    
+    .elo {
+      font-size: 11px;
+      color: #666;
+      font-weight: 600;
+    }
+  }
+  
+  .progress-indicator {
+    .progress-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        width: 44px;
+        height: 44px;
+        background: white;
+        border-radius: 50%;
+      }
+      
+      span {
+        position: relative;
+        font-size: 12px;
+        font-weight: 800;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.vs-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  
+  .vs-badge {
+    background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 12px;
+  }
+  
+  .time-info {
+    span {
+      font-size: 11px;
+      color: #666;
+      font-weight: 600;
+    }
+  }
+}
+
+.problem-section {
+  background: white;
+  margin: 0 20px 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.problem-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  
+  h3 {
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .difficulty {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    
+    &.medium {
+      background: rgba(255, 193, 7, 0.2);
+      color: #FF9800;
+    }
+  }
+}
+
+.problem-description {
+  margin-bottom: 20px;
+  
+  p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  
+  .example, .constraints {
+    margin-bottom: 16px;
+    
+    strong {
+      color: #333;
+      font-weight: 700;
+    }
+    
+    pre {
+      background: #f5f5f5;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 8px 0 0 0;
+      font-size: 12px;
+    }
+    
+    ul {
+      margin: 8px 0 0 0;
+      padding-left: 20px;
+      
+      li {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+.code-stats {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 107, 129, 0.1);
+  
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    
+    ion-icon {
+      color: #FF6B81;
+      font-size: 16px;
+    }
+    
+    span {
+      font-size: 12px;
+      color: #666;
+      font-weight: 500;
+    }
+  }
+}
+
+.action-section {
+  background: white;
+  margin: 0 20px 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.continue-btn {
+  --border-radius: 16px;
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  --color: white;
+  --box-shadow: 0 6px 0 #E05570, 0 8px 20px rgba(255, 107, 129, 0.3);
+  height: 56px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.secondary-actions {
+  display: flex;
+  gap: 12px;
+  
+  ion-button {
+    flex: 1;
+    --border-radius: 12px;
+    --color: #FF6B81;
+    --border-color: #FF6B81;
+    --border-width: 2px;
+    height: 44px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
+
+.history-section {
+  background: white;
+  margin: 0 20px 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.section-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+  border-left: 4px solid #FF6B81;
+  padding-left: 12px;
+}
+
+.timeline {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 107, 129, 0.2);
+  }
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.timeline-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FF6B81;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #FF6B81;
+  flex-shrink: 0;
+  margin-top: 2px;
+  z-index: 1;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-bottom: 8px;
+  
+  .event-time {
+    font-size: 11px;
+    color: #FF6B81;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+  }
+  
+  .event-description {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+  }
+}

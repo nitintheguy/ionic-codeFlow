@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancelMatchmaking()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Find 1v1 Match</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="matchmaking-content">
+  <!-- Matchmaking Status -->
+  <div class="matchmaking-section">
+    <div class="searching-animation">
+      <div class="lottie-container" id="searching-animation"></div>
+    </div>
+    
+    <h2 class="searching-title">Finding Opponent...</h2>
+    <p class="searching-subtitle">Matching you with players of similar skill level</p>
+    
+    <div class="matchmaking-stats">
+      <div class="stat">
+        <div class="stat-value">{{ currentElo }}</div>
+        <div class="stat-label">Your ELO</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">{{ estimatedTime }}s</div>
+        <div class="stat-label">Est. Time</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">{{ playersOnline }}</div>
+        <div class="stat-label">Online</div>
+      </div>
+    </div>
+
+    <div class="search-criteria">
+      <h4>Match Criteria</h4>
+      <div class="criteria-list">
+        <div class="criterion">
+          <ion-icon name="checkmark-circle" class="success"></ion-icon>
+          <span>ELO Range: ±50 points</span>
+        </div>
+        <div class="criterion">
+          <ion-icon name="checkmark-circle" class="success"></ion-icon>
+          <span>Algorithm Problems</span>
+        </div>
+        <div class="criterion">
+          <ion-icon name="checkmark-circle" class="success"></ion-icon>
+          <span>30-minute time limit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Found Match Section -->
+  <div class="match-found-section" *ngIf="matchFound">
+    <div class="match-header">
+      <h2>Match Found!</h2>
+      <p>Get ready to code!</p>
+    </div>
+
+    <div class="players-comparison">
+      <div class="player you">
+        <div class="player-avatar">
+          <div class="lottie-container" id="player-you-animation"></div>
+        </div>
+        <div class="player-info">
+          <h4>You</h4>
+          <span class="elo">{{ currentElo }} ELO</span>
+          <span class="winrate">68% Win Rate</span>
+        </div>
+      </div>
+
+      <div class="vs-badge">
+        <span>VS</span>
+      </div>
+
+      <div class="player opponent">
+        <div class="player-avatar">
+          <div class="lottie-container" id="opponent-animation"></div>
+        </div>
+        <div class="player-info">
+          <h4>{{ opponentName }}</h4>
+          <span class="elo">{{ opponentElo }} ELO</span>
+          <span class="winrate">{{ opponentWinRate }}% Win Rate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="match-details">
+      <div class="detail-item">
+        <ion-icon name="code"></ion-icon>
+        <span>Problem: {{ problemDifficulty }}</span>
+      </div>
+      <div class="detail-item">
+        <ion-icon name="time"></ion-icon>
+        <span>Time Limit: 30 minutes</span>
+      </div>
+      <div class="detail-item">
+        <ion-icon name="trophy"></ion-icon>
+        <span>ELO at Stake: ±25 points</span>
+      </div>
+    </div>
+
+    <div class="match-actions">
+      <ion-button expand="block" class="accept-btn" (click)="acceptMatch()">
+        <ion-icon name="checkmark-circle" slot="start"></ion-icon>
+        Accept Match
+      </ion-button>
+      
+      <ion-button expand="block" fill="outline" class="decline-btn" (click)="declineMatch()">
+        <ion-icon name="close-circle" slot="start"></ion-icon>
+        Decline
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Queue Information -->
+  <div class="queue-info">
+    <h4>Quick Play Queue</h4>
+    <div class="queue-stats">
+      <div class="queue-stat">
+        <strong>Average Wait:</strong> 15 seconds
+      </div>
+      <div class="queue-stat">
+        <strong>Success Rate:</strong> 95%
+      </div>
+    </div>
+  </div>
+</ion-content>

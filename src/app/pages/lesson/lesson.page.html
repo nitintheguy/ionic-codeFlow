@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ lesson.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="lesson-content">
+  <div class="lesson-meta">
+    <div class="meta-item">
+      <ion-icon name="time"></ion-icon>
+      <span>{{ lesson.duration }}</span>
+    </div>
+    <div class="meta-item">
+      <ion-icon name="fitness"></ion-icon>
+      <span>{{ lesson.exercises }} exercises</span>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Introduction</h2>
+    <p>{{ lesson.content }}</p>
+  </div>
+
+  <div class="content-section">
+    <h2>Key Concepts</h2>
+    <ul>
+      <li *ngFor="let concept of lesson.concepts">{{ concept }}</li>
+    </ul>
+  </div>
+
+  <div class="interactive-section">
+    <h2>Try it yourself</h2>
+    <div class="code-editor">
+      <pre><code>// Write your code here
+console.log("Hello, World!");</code></pre>
+    </div>
+    <ion-button expand="block" class="run-btn">
+      <ion-icon slot="start" name="play"></ion-icon>
+      Run Code
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" class="complete-btn" (click)="completeLesson()">
+      <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+      Mark as Complete
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

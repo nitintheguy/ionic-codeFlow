@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="saveProfile()" [strong]="true">Save</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true" class="edit-profile-content">
+  <div class="profile-picture-section">
+    <div class="avatar-container">
+      <div class="lottie-container" id="edit-avatar-animation"></div>
+      <button class="change-photo-btn" (click)="changePhoto()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </div>
+    <h3>Update Profile Picture</h3>
+  </div>
+
+  <div class="form-section">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Full Name</ion-label>
+        <ion-input [(ngModel)]="profile.name" placeholder="Enter your name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Email Address</ion-label>
+        <ion-input [(ngModel)]="profile.email" type="email" placeholder="Enter your email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Phone Number</ion-label>
+        <ion-input [(ngModel)]="profile.phone" type="tel" placeholder="Enter your phone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Job Title</ion-label>
+        <ion-input [(ngModel)]="profile.title" placeholder="Enter your job title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Bio</ion-label>
+        <ion-textarea [(ngModel)]="profile.bio" rows="4" placeholder="Tell us about yourself"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Location</ion-label>
+        <ion-input [(ngModel)]="profile.location" placeholder="Enter your location"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="danger-section">
+    <h4>Account Actions</h4>
+    <ion-button expand="block" fill="outline" color="danger" (click)="deleteAccount()">
+      Delete Account
+    </ion-button>
+  </div>
+</ion-content>

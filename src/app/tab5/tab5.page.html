@@ -1,0 +1,227 @@
+<ion-content [fullscreen]="true" class="debugging-content">
+  <!-- HEADER WITH TOKEN SYSTEM -->
+  <div class="debugging-header">
+    <div class="header-main">
+      <div class="title-section">
+        <h1>Code Mentor</h1>
+        <p>AI-Powered Debugging & Career Guidance</p>
+      </div>
+      <div class="token-display">
+        <div class="lottie-container" id="tokens-animation"></div>
+        <div class="token-info">
+          <div class="token-count">42</div>
+          <div class="token-label">Tokens Available</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="usage-section">
+      <div class="usage-item">
+        <div class="lottie-container small" id="used-animation"></div>
+        <div class="usage-data">
+          <div class="usage-value">8/50</div>
+          <div class="usage-label">Monthly Usage</div>
+        </div>
+      </div>
+      <div class="usage-item">
+        <div class="lottie-container small" id="resets-animation"></div>
+        <div class="usage-data">
+          <div class="usage-value">5 days</div>
+          <div class="usage-label">Reset In</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN ACTIONS GRID -->
+  <div class="actions-grid">
+    <div class="action-card primary" (click)="startDebugging()">
+      <div class="action-icon">
+        <div class="lottie-container" id="debug-animation"></div>
+      </div>
+      <h3>Debug Code</h3>
+      <p>Find and fix bugs in your code</p>
+      <div class="action-cost">2 tokens</div>
+    </div>
+
+    <div class="action-card secondary" (click)="explainCode()">
+      <div class="action-icon">
+        <div class="lottie-container" id="explanation-animation"></div>
+      </div>
+      <h3>Explain Code</h3>
+      <p>Understand complex code blocks</p>
+      <div class="action-cost">1 token</div>
+    </div>
+
+    <div class="action-card accent" (click)="careerGuidance()">
+      <div class="action-icon">
+        <div class="lottie-container" id="career-animation"></div>
+      </div>
+      <h3>Career Path</h3>
+      <p>Personalized career advice</p>
+      <div class="action-cost">3 tokens</div>
+    </div>
+
+    <div class="action-card accent2" (click)="interviewPrep()">
+      <div class="action-icon">
+        <div class="lottie-container" id="interview-animation"></div>
+      </div>
+      <h3>Interview Prep</h3>
+      <p>Mock interviews & feedback</p>
+      <div class="action-cost">2 tokens</div>
+    </div>
+  </div>
+
+  <!-- QUICK DEBUG TOOLS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Quick Debug Tools</h2>
+      <p>Instant code analysis</p>
+    </div>
+
+    <div class="tools-stack">
+      <div class="tool-item" (click)="quickAnalyze()">
+        <div class="tool-icon">
+          <div class="lottie-container small" id="analysis-animation"></div>
+        </div>
+        <div class="tool-content">
+          <h4>Quick Analysis</h4>
+          <p>Basic code review and suggestions</p>
+        </div>
+        <div class="tool-cost">1 token</div>
+      </div>
+
+      <div class="tool-item" (click)="performanceCheck()">
+        <div class="tool-icon">
+          <div class="lottie-container small" id="performance-animation"></div>
+        </div>
+        <div class="tool-content">
+          <h4>Performance Check</h4>
+          <p>Optimization tips and bottlenecks</p>
+        </div>
+        <div class="tool-cost">2 tokens</div>
+      </div>
+
+      <div class="tool-item" (click)="securityScan()">
+        <div class="tool-icon">
+          <div class="lottie-container small" id="security-animation"></div>
+        </div>
+        <div class="tool-content">
+          <h4>Security Scan</h4>
+          <p>Vulnerability detection</p>
+        </div>
+        <div class="tool-cost">2 tokens</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECENT SESSIONS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Recent Sessions</h2>
+      <p>Your debugging history</p>
+    </div>
+
+    <div class="sessions-list">
+      <div class="session-item">
+        <div class="session-type debug">
+          <div class="lottie-container x-small" id="session1-animation"></div>
+        </div>
+        <div class="session-details">
+          <h4>Fixed React State Bug</h4>
+          <p>Resolved infinite re-render issue</p>
+          <span class="session-time">2 hours ago</span>
+        </div>
+        <div class="session-tokens">-2</div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-type explain">
+          <div class="lottie-container x-small" id="session2-animation"></div>
+        </div>
+        <div class="session-details">
+          <h4>Python Algorithm Explained</h4>
+          <p>Dijkstra's algorithm breakdown</p>
+          <span class="session-time">5 hours ago</span>
+        </div>
+        <div class="session-tokens">-1</div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-type career">
+          <div class="lottie-container x-small" id="session3-animation"></div>
+        </div>
+        <div class="session-details">
+          <h4>Career Roadmap Created</h4>
+          <p>Full-stack developer path</p>
+          <span class="session-time">1 day ago</span>
+        </div>
+        <div class="session-tokens">-3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOKEN MANAGEMENT -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Token Management</h2>
+      <p>Manage your usage and limits</p>
+    </div>
+
+    <div class="token-cards">
+      <div class="token-card">
+        <div class="token-card-icon">
+          <div class="lottie-container small" id="limit-animation"></div>
+        </div>
+        <div class="token-card-content">
+          <h4>Monthly Limit</h4>
+          <p>50 tokens renews monthly</p>
+        </div>
+        <div class="token-card-value">50</div>
+      </div>
+
+      <div class="token-card">
+        <div class="token-card-icon">
+          <div class="lottie-container small" id="usage-animation"></div>
+        </div>
+        <div class="token-card-content">
+          <h4>Used This Month</h4>
+          <p>Tokens consumed</p>
+        </div>
+        <div class="token-card-value">8</div>
+      </div>
+
+      <div class="token-card">
+        <div class="token-card-icon">
+          <div class="lottie-container small" id="remaining-animation"></div>
+        </div>
+        <div class="token-card-content">
+          <h4>Remaining</h4>
+          <p>Available for use</p>
+        </div>
+        <div class="token-card-value">42</div>
+      </div>
+    </div>
+
+    <!-- Simple Upgrade Option -->
+    <!-- Simple Upgrade Option -->
+<div class="upgrade-section">
+  <div class="upgrade-card">
+    <div class="upgrade-content">
+      <h4>Need More Tokens?</h4>
+      <p>Get additional tokens instantly</p>
+      <div class="upgrade-options">
+        <button class="upgrade-option" (click)="purchase50Tokens()">
+          <span>+50 tokens</span>
+          <span>$9.99</span>
+        </button>
+        <button class="upgrade-option primary" (click)="purchase100Tokens()">
+          <span>+100 tokens</span>
+          <span>$14.99</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</ion-content>

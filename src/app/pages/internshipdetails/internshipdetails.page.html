@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Internship Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="internship-details-content">
+  <div class="internship-hero">
+    <div class="company-logo-large">
+      <div class="lottie-container" id="internship-details-animation"></div>
+    </div>
+    <div class="internship-info">
+      <h1>{{ internship?.title }}</h1>
+      <p>{{ internship?.company }} • {{ internship?.location }}</p>
+      <div class="salary-badge">
+        <ion-icon name="cash"></ion-icon>
+        <span>${{ internship?.salary?.toLocaleString() }}/month</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h3>Job Description</h3>
+    <p>{{ internship?.description }}</p>
+  </div>
+
+  <div class="details-section">
+    <h3>Position Details</h3>
+    <div class="position-details">
+      <div class="detail-item">
+        <ion-icon name="business"></ion-icon>
+        <div class="detail-content">
+          <strong>Company</strong>
+          <span>{{ internship?.company }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <ion-icon name="location"></ion-icon>
+        <div class="detail-content">
+          <strong>Location</strong>
+          <span>{{ internship?.location }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <ion-icon name="time"></ion-icon>
+        <div class="detail-content">
+          <strong>Duration</strong>
+          <span>{{ internship?.duration }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <ion-icon name="calendar"></ion-icon>
+        <div class="detail-content">
+          <strong>Apply By</strong>
+          <span>{{ internship?.applyBy }}</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <ion-icon name="briefcase"></ion-icon>
+        <div class="detail-content">
+          <strong>Work Type</strong>
+          <span>{{ internship?.type }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h3>Requirements</h3>
+    <p>{{ internship?.requirements }}</p>
+  </div>
+
+  <div class="details-section">
+    <h3>Required Skills</h3>
+    <div class="skills-list">
+      <span class="skill-tag" *ngFor="let skill of internship?.skills">{{ skill }}</span>
+    </div>
+  </div>
+
+  <div class="action-section">
+    <ion-button expand="block" class="apply-btn" (click)="toggleApplication()" [disabled]="processing">
+      <ion-icon [name]="isApplied ? 'close-circle' : 'document'" slot="start"></ion-icon>
+      {{ isApplied ? 'Cancel Application' : 'Apply Now' }}
+    </ion-button>
+    
+    <div class="secondary-actions">
+      <ion-button fill="outline" class="save-btn" (click)="toggleSave()">
+        <ion-icon [name]="isSaved ? 'bookmark' : 'bookmark-outline'" slot="start"></ion-icon>
+        {{ isSaved ? 'Saved' : 'Save for Later' }}
+      </ion-button>
+    </div>
+
+    <div class="application-info" *ngIf="isApplied">
+      <ion-icon name="checkmark-circle" class="success"></ion-icon>
+      <span>Application submitted successfully!</span>
+    </div>
+  </div>
+
+  <div class="warning-section" *ngIf="showCancelWarning">
+    <div class="warning-content">
+      <ion-icon name="warning" class="warning-icon"></ion-icon>
+      <h4>Cancel Application?</h4>
+      <p>Are you sure you want to cancel your application for {{ internship?.title }} at {{ internship?.company }}?</p>
+      <div class="warning-actions">
+        <ion-button fill="outline" (click)="cancelCancellation()">Keep Application</ion-button>
+        <ion-button color="danger" (click)="confirmCancellation()">Yes, Cancel</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

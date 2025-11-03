@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar class="primary-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Explore Internships</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="explore-internships-content">
+  <!-- Search Section -->
+  <div class="search-section">
+    <div class="search-bar">
+      <ion-input placeholder="Search internships..." class="search-input"></ion-input>
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-section">
+    <h3>Filters</h3>
+    <div class="filter-options">
+      <ion-segment [(ngModel)]="selectedFilter" (ionChange)="applyFilters()">
+        <ion-segment-button value="all">
+          <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="remote">
+          <ion-label>Remote</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="onsite">
+          <ion-label>On-site</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="saved">
+          <ion-label>Saved</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </div>
+
+  <!-- Internships List -->
+  <div class="internships-list">
+    <div class="internship-card" *ngFor="let internship of filteredInternships">
+      <div class="internship-header">
+        <div class="company-logo">
+          <div class="lottie-container" [id]="'internship-' + internship.id + '-animation'"></div>
+        </div>
+        <div class="internship-info">
+          <h3>{{ internship.title }}</h3>
+          <p>{{ internship.company }} • {{ internship.location }}</p>
+          <div class="internship-meta">
+            <span class="salary">${{ internship.salary.toLocaleString() }}/month</span>
+            <span class="duration">{{ internship.duration }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="internship-details">
+        <div class="detail-item">
+          <ion-icon name="school"></ion-icon>
+          <span>{{ internship.requirements }}</span>
+        </div>
+        <div class="detail-item">
+          <ion-icon name="time"></ion-icon>
+          <span>Apply by: {{ internship.applyBy }}</span>
+        </div>
+        <div class="detail-item">
+          <ion-icon name="briefcase"></ion-icon>
+          <span>{{ internship.type }}</span>
+        </div>
+      </div>
+
+      <div class="internship-actions">
+        <ion-button expand="block" class="apply-btn" (click)="applyInternship(internship.id)">
+          <ion-icon name="document" slot="start"></ion-icon>
+          {{ internship.applied ? 'Applied' : 'Apply Now' }}
+        </ion-button>
+        <ion-button fill="outline" class="save-btn" (click)="toggleSave(internship.id)">
+          <ion-icon [name]="internship.saved ? 'bookmark' : 'bookmark-outline'" slot="start"></ion-icon>
+          {{ internship.saved ? 'Saved' : 'Save' }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

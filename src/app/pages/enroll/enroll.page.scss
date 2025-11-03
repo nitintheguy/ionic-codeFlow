@@ -1,0 +1,284 @@
+.enroll-content {
+  --background: #FDF6E3;
+}
+
+.primary-toolbar {
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%) !important;
+  --color: white !important;
+  
+  ion-button {
+    --color: white !important;
+    
+    ion-icon {
+      color: white !important;
+      font-size: 24px;
+    }
+  }
+  
+  ion-title {
+    --color: white !important;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}
+
+.course-summary {
+  background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 8px 0 rgba(200, 60, 80, 0.5), 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.course-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  
+  .lottie-container {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.course-details {
+  flex: 1;
+}
+
+.course-title {
+  margin: 0 0 8px 0;
+  font-size: 1.3em;
+  font-weight: 800;
+  color: white;
+}
+
+.course-instructor {
+  margin: 0 0 12px 0;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.course-meta {
+  display: flex;
+  gap: 16px;
+  
+  span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.9;
+    
+    ion-icon {
+      font-size: 14px;
+    }
+  }
+}
+
+.pricing-section {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-display {
+  text-align: left;
+}
+
+.original-price {
+  font-size: 1em;
+  color: #999;
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.current-price {
+  font-size: 2.5em;
+  font-weight: 800;
+  color: #FF6B81;
+  line-height: 1;
+}
+
+.price-note {
+  font-size: 0.9em;
+  color: #666;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.savings-badge {
+  background: linear-gradient(135deg, #58CC02 0%, #46A302 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(88, 204, 2, 0.3);
+}
+
+.features-section {
+  background: white;
+  margin: 0 20px 20px 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.section-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.features-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  
+  .feature-icon {
+    color: #58CC02;
+    font-size: 1.2em;
+    flex-shrink: 0;
+  }
+  
+  span {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.payment-section {
+  background: white;
+  margin: 0 20px 20px 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 2px solid rgba(255, 107, 129, 0.1);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:active {
+    transform: scale(0.98);
+  }
+  
+  &.selected {
+    border-color: #FF6B81;
+    background: rgba(255, 107, 129, 0.05);
+  }
+}
+
+.method-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 107, 129, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  ion-icon {
+    color: #FF6B81;
+    font-size: 20px;
+  }
+}
+
+.method-info {
+  flex: 1;
+}
+
+.method-name {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.method-description {
+  font-size: 12px;
+  color: #666;
+}
+
+.method-check {
+  ion-icon {
+    color: #58CC02;
+    font-size: 20px;
+  }
+}
+
+.action-section {
+  padding: 20px;
+  background: white;
+  margin: 0 20px 20px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(255, 107, 129, 0.1);
+}
+
+.enroll-btn {
+  --border-radius: 16px;
+  --background: linear-gradient(135deg, #FF6B81 0%, #FF8E9E 100%);
+  --color: white;
+  --box-shadow: 0 6px 0 #E05570, 0 8px 20px rgba(255, 107, 129, 0.3);
+  height: 56px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 16px;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.security-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+  
+  ion-icon {
+    color: #58CC02;
+    font-size: 16px;
+  }
+}
